@@ -360,13 +360,29 @@ footer a { color: var(--gold); text-decoration: none; }
 
 /* ─── STICKY MOBILE ─── */
 .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; padding: 10px 20px; z-index: 100; justify-content: center; background: rgba(28,20,16,0.9); backdrop-filter: blur(6px); transition: opacity 0.4s ease, transform 0.4s ease; }
-@media (max-width: 600px) { .sticky-cta { display: flex; } body { padding-bottom: 70px; } }
+@media (max-width: 600px) { .sticky-cta { display: flex; } body { padding-bottom: 60px; } }
 .sticky-cta.hidden-bar { opacity: 0; pointer-events: none; transform: translateY(100%); }
-.sticky-cta .btn-cta { min-width: unset; width: 100%; max-width: 360px; }
-.sticky-cta .btn-inner-wrap { padding: 9px 16px 9px 10px; }
-.sticky-cta .btn-icon { width: 30px; height: 30px; min-width: 30px; }
-.sticky-cta .btn-texts { height: 2.8em; margin-left: 10px; }
-.sticky-cta .btn-txt1, .sticky-cta .btn-txt2 { font-size: 12px; }
+.sticky-cta .btn-cta { min-width: unset; width: auto; }
+.sticky-cta .btn-inner-wrap { padding: 8px 16px 8px 10px; }
+.sticky-cta .btn-icon { width: 28px; height: 28px; min-width: 28px; }
+.sticky-cta .btn-texts {
+  height: auto;
+  min-height: unset;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+.sticky-cta .btn-txt1,
+.sticky-cta .btn-txt2 {
+  font-size: 13px;
+  position: relative;
+  white-space: nowrap;
+  line-height: 1;
+}
+.sticky-cta .btn-txt2 { display: none; }
 
 /* ─── BLUR INFERIOR DE SCROLL ─── */
 .page-blur-wrap {
