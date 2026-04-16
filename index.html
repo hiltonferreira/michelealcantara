@@ -359,9 +359,14 @@ footer { background: var(--dark); color: rgba(255,255,255,0.4); text-align: cent
 footer a { color: var(--gold); text-decoration: none; }
 
 /* ─── STICKY MOBILE ─── */
-.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; padding: 10px 20px; z-index: 100; justify-content: center; background: rgba(28,20,16,0.9); backdrop-filter: blur(6px); }
+.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; padding: 10px 20px; z-index: 100; justify-content: center; background: rgba(28,20,16,0.9); backdrop-filter: blur(6px); transition: opacity 0.4s ease, transform 0.4s ease; }
 @media (max-width: 600px) { .sticky-cta { display: flex; } body { padding-bottom: 70px; } }
-.sticky-cta .btn-cta { min-width: unset; }
+.sticky-cta.hidden-bar { opacity: 0; pointer-events: none; transform: translateY(100%); }
+.sticky-cta .btn-cta { min-width: unset; width: 100%; max-width: 360px; }
+.sticky-cta .btn-inner-wrap { padding: 9px 16px 9px 10px; }
+.sticky-cta .btn-icon { width: 30px; height: 30px; min-width: 30px; }
+.sticky-cta .btn-texts { height: 2.8em; margin-left: 10px; }
+.sticky-cta .btn-txt1, .sticky-cta .btn-txt2 { font-size: 12px; }
 
 /* ─── BLUR INFERIOR DE SCROLL ─── */
 .page-blur-wrap {
@@ -777,13 +782,13 @@ footer a { color: var(--gold); text-decoration: none; }
   <p style="margin-top: 12px; font-size: 11px;">Este site não é afiliado ao Facebook, Instagram ou Google. Todos os direitos reservados.</p>
 </footer>
 
-<div class="sticky-cta">
-  <a href="#inscricao" class="btn-cta" style="min-width:unset;">
+<div class="sticky-cta hidden-bar" id="stickyCta">
+  <a href="#inscricao" class="btn-cta">
     <div class="btn-inner-wrap">
-      <div class="btn-icon" style="width:28px;height:28px;min-width:28px;"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-      <div class="btn-texts" style="margin-left:10px;">
-        <span class="btn-txt1" style="font-size:12px;">Quero me inscrever</span>
-        <span class="btn-txt2" style="font-size:11px;">Garantir minha<br>vaga por R$ 27</span>
+      <div class="btn-icon"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+      <div class="btn-texts">
+        <span class="btn-txt1">Quero me inscrever</span>
+        <span class="btn-txt2">Garantir minha<br>vaga por R$ 27</span>
       </div>
     </div>
   </a>
@@ -917,7 +922,18 @@ function animateCounter(el) {
   }, 1800 / steps);
 }
 
-/* BLUR HIDE NEAR BOTTOM */
+/* STICKY CTA — aparece somente após a hero sair da tela */
+(function() {
+  const bar = document.getElementById('stickyCta');
+  const hero = document.querySelector('.hero');
+  if (!bar || !hero) return;
+  function checkSticky() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    bar.classList.toggle('hidden-bar', heroBottom > 0);
+  }
+  window.addEventListener('scroll', checkSticky, { passive: true });
+  checkSticky();
+})();
 const blurWrap = document.querySelector('.page-blur-wrap');
 function checkBlur() {
   if (!blurWrap) return;
