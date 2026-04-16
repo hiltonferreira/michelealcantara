@@ -33,7 +33,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* ─── HERO ─── */
 .hero { background: linear-gradient(160deg, #1C1410 0%, #3D2419 55%, #5C3322 100%); color: var(--white); padding: 80px 20px 0; text-align: center; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 80%, rgba(212,168,67,0.15), transparent); }
-.hero-tag { display: inline-block; background: var(--gold); color: var(--dark); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 6px 18px; border-radius: 2px; margin-bottom: 28px; animation: fadeDown 0.7s ease both; }
+.hero-tag { display: inline-block; background: var(--gold); color: var(--dark); font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 6px 18px; border-radius: 2px; margin-bottom: 10px; animation: fadeDown 0.7s ease both; }
+.hero-date { font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 22px; animation: fadeDown 0.7s 0.08s ease both; }
 .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 5.5vw, 64px); font-weight: 700; line-height: 1.1; max-width: 820px; margin: 0 auto 20px; animation: fadeDown 0.7s 0.15s ease both; }
 .hero h1 em { font-style: italic; color: var(--gold); }
 .hero-sub { font-size: clamp(16px, 2.5vw, 19px); color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 40px; font-weight: 300; animation: fadeDown 0.7s 0.3s ease both; }
@@ -135,7 +136,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* ─── SECTIONS ─── */
 section { padding: 80px 20px; }
 .container { max-width: 900px; margin: 0 auto; }
-.section-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); font-weight: 500; margin-bottom: 12px; }
+.section-label { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); font-weight: 500; margin-bottom: 12px; }
 h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; line-height: 1.2; color: var(--dark); margin-bottom: 20px; }
 h2 em { color: var(--rose-dark); font-style: italic; }
 
@@ -163,7 +164,7 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 /* ─── FOR WHOM ─── */
 .forwho { background: var(--white); }
 .check-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 30px; }
-.check-list li { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; background: var(--cream); border-radius: 8px; border-left: 3px solid var(--rose); font-size: 15px; color: var(--mid); }
+.check-list li { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; background: var(--cream); border-radius: 8px; border-left: 3px solid var(--rose); font-size: 16px; color: var(--mid); }
 .chk { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; stroke: var(--rose); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ─── AULAS ─── */
@@ -180,11 +181,11 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .aula-tz { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.5px; color: rgba(212,168,67,0.6); font-weight: 400; margin-top: 3px; display: block; }
 .aula-num { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; color: rgba(212,168,67,0.18); line-height: 1; flex-shrink: 0; margin-left: 10px; align-self: flex-start; }
 .aula-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; line-height: 1.3; margin-top: 8px; }
-.aula-subtitle { font-size: 13px; color: rgba(255,255,255,0.48); margin-bottom: 16px; font-style: italic; }
+.aula-subtitle { font-size: 14px; color: rgba(255,255,255,0.48); margin-bottom: 16px; font-style: italic; }
 .aula-divider { border: none; border-top: 1px solid rgba(212,168,67,0.15); margin-bottom: 14px; }
-.aula-learns { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 500; }
+.aula-learns { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 500; }
 .aula-card ul { list-style: none; flex: 1; }
-.aula-card ul li { font-size: 13.5px; color: rgba(255,255,255,0.7); padding: 6px 0 6px 18px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.aula-card ul li { font-size: 14.5px; color: rgba(255,255,255,0.7); padding: 6px 0 6px 18px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .aula-card ul li:last-child { border-bottom: none; }
 .aula-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--rose); font-size: 12px; top: 7px; }
 .aula-card.destaque { border-color: var(--gold); background: rgba(212,168,67,0.06); }
@@ -197,7 +198,7 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .certificado h2 em { color: var(--rose-dark); }
 .cert-wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; align-items: center; margin-top: 40px; }
 @media (max-width: 680px) { .cert-wrap { grid-template-columns: 1fr; } }
-.cert-text p { font-size: 15px; color: var(--mid); margin-bottom: 16px; line-height: 1.8; }
+.cert-text p { font-size: 16px; color: var(--mid); margin-bottom: 16px; line-height: 1.8; }
 .cert-feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
 .cert-feature-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(212,168,67,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .cert-feature-icon svg { width: 16px; height: 16px; stroke: var(--rose-dark); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -226,7 +227,7 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .about { background: var(--white); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 @media (max-width: 680px) { .about-grid { grid-template-columns: 1fr; } }
-.about p { font-size: 16px; color: var(--mid); margin-bottom: 18px; line-height: 1.8; }
+.about p { font-size: 17px; color: var(--mid); margin-bottom: 18px; line-height: 1.8; }
 .credentials { margin: 16px 0 24px; display: flex; flex-direction: column; gap: 9px; }
 .cred-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
 .cred-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
@@ -241,16 +242,55 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .stat-card.cream .stat-num { color: var(--mid); }
 .stat-desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-/* ─── DEPOIMENTOS ─── */
+/* ─── DEPOIMENTOS — premium ─── */
 .depoimentos { background: var(--rose-light); overflow: hidden; }
-.depo-viewport { position: relative; width: 100%; overflow: hidden; padding: 20px 0 36px; cursor: grab; user-select: none; }
+.depo-viewport { position: relative; width: 100%; overflow: hidden; padding: 20px 0 40px; cursor: grab; user-select: none; }
 .depo-viewport:active { cursor: grabbing; }
-.depo-track { display: flex; gap: 24px; will-change: transform; }
-.depo-card { background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid rgba(200,149,108,0.15); box-shadow: 0 2px 12px rgba(139,94,60,0.06); min-width: 300px; max-width: 300px; flex-shrink: 0; transition: filter 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; filter: blur(2.5px); transform: scale(0.94); }
-.depo-card.center { filter: blur(0); transform: scale(1); border-color: rgba(200,149,108,0.45); box-shadow: 0 8px 32px rgba(139,94,60,0.16), 0 0 0 1px rgba(212,168,67,0.2); }
-.stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
-.depo-card p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
-.depo-author { font-size: 13px; font-weight: 500; color: var(--dark); }
+.depo-track { display: flex; gap: 28px; will-change: transform; }
+.depo-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 26px 22px;
+  border: 1px solid rgba(200,149,108,0.12);
+  box-shadow: 0 4px 20px rgba(139,94,60,0.07), 0 1px 4px rgba(139,94,60,0.05);
+  min-width: 320px; max-width: 320px; flex-shrink: 0;
+  transition: filter 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  filter: blur(2.5px); transform: scale(0.93);
+  display: flex; flex-direction: column; gap: 0;
+  position: relative;
+}
+.depo-card::before {
+  content: '\201C';
+  font-family: 'Playfair Display', serif;
+  font-size: 72px; line-height: 1;
+  color: var(--gold); opacity: 0.18;
+  position: absolute; top: 10px; right: 18px;
+  pointer-events: none;
+}
+.depo-card.center {
+  filter: blur(0); transform: scale(1);
+  border-color: rgba(200,149,108,0.35);
+  box-shadow: 0 12px 40px rgba(139,94,60,0.14), 0 0 0 1px rgba(212,168,67,0.18), 0 2px 8px rgba(139,94,60,0.08);
+}
+.stars { color: var(--gold); font-size: 13px; margin-bottom: 14px; letter-spacing: 3px; }
+.depo-card p { font-size: 15px; color: var(--mid); line-height: 1.75; margin-bottom: 20px; font-style: italic; flex: 1; }
+.depo-footer { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(200,149,108,0.15); padding-top: 16px; margin-top: auto; }
+.depo-avatar {
+  width: 44px; height: 44px; min-width: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-light), var(--gold-light));
+  border: 2px solid rgba(212,168,67,0.3);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.depo-avatar-initials {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--rose-dark);
+}
+.depo-author-block { display: flex; flex-direction: column; }
+.depo-author { font-size: 14px; font-weight: 600; color: var(--dark); line-height: 1.2; }
+.depo-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
 /* ─── CTA SECTION ─── */
 .cta-section { background: linear-gradient(140deg, #1C1410, #3D2419); color: var(--white); text-align: center; padding: 90px 20px; }
@@ -308,10 +348,10 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .faq { background: var(--cream); }
 .faq-list { margin-top: 36px; }
 .faq-item { border-bottom: 1px solid rgba(92,64,51,0.12); padding: 20px 0; }
-.faq-q { font-size: 16px; font-weight: 500; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: color 0.2s; }
+.faq-q { font-size: 17px; font-weight: 500; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; transition: color 0.2s; }
 .faq-q:hover { color: var(--rose-dark); }
 .faq-q::after { content: '+'; font-size: 22px; color: var(--rose); flex-shrink: 0; }
-.faq-a { font-size: 15px; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s; }
+.faq-a { font-size: 16px; color: var(--muted); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s; }
 .faq-item.open .faq-a { max-height: 220px; padding-top: 12px; }
 .faq-item.open .faq-q::after { content: '−'; }
 
@@ -365,6 +405,7 @@ footer a { color: var(--gold); text-decoration: none; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
+  <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
   <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
   <p class="hero-sub">3 encontros intensivos ao vivo com a instrutora Michele Alcântara, mais de 7 anos formando Nail Designers de alto padrão</p>
   <div class="btn-wrap">
@@ -595,12 +636,79 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
   <div class="depo-viewport rv" id="depoViewport">
     <div class="depo-track" id="depoTrack">
-      <div class="depo-card"><div class="stars">★★★★★</div><p>"Antes eu cobrava R$25 por conjunto. Depois das dicas da Michele comecei a cobrar R$80 e minhas clientes adoraram a qualidade! Mudou minha vida."</p><div class="depo-author">Juliane S., Manicure há 2 anos</div></div>
-      <div class="depo-card"><div class="stars">★★★★★</div><p>"Aprendi a fotografar meu trabalho do jeito certo e em 3 semanas meu Instagram cresceu e minha agenda lotou pela primeira vez. Impressionante!"</p><div class="depo-author">Camila R., Nail Designer, Goiânia</div></div>
-      <div class="depo-card"><div class="stars">★★★★★</div><p>"Achei que era difícil demais fazer Nail Art. A Michele ensina de um jeito tão prático que em poucos dias já estava oferecendo para minhas clientes."</p><div class="depo-author">Priscila M., Nail Designer iniciante</div></div>
-      <div class="depo-card"><div class="stars">★★★★★</div><p>"O Spa do Pé Premium mudou meu atendimento completamente. Hoje cobro três vezes mais e minhas clientes voltam toda semana. Vale cada centavo."</p><div class="depo-author">Fernanda T., Podóloga e Nail Designer</div></div>
-      <div class="depo-card"><div class="stars">★★★★★</div><p>"A técnica F1 Premium é incrível. Eu tinha medo de gel mas a Michele simplifica tudo. Em uma semana já estava fazendo unhas profissionais de verdade."</p><div class="depo-author">Renata L., iniciante em Nail Design</div></div>
-      <div class="depo-card"><div class="stars">★★★★★</div><p>"Aprendi a montar minha tabela de preços correta e parei de me sentir culpada ao cobrar o valor justo. A Michele deu clareza e confiança que eu precisava."</p><div class="depo-author">Daniela M., Nail Designer, Rondônia</div></div>
+
+      <div class="depo-card">
+        <div class="stars">★★★★★</div>
+        <p>"Antes eu cobrava R$25 por conjunto. Depois das dicas da Michele comecei a cobrar R$80 e minhas clientes adoraram a qualidade! Mudou minha vida."</p>
+        <div class="depo-footer">
+          <div class="depo-avatar"><span class="depo-avatar-initials">JS</span></div>
+          <div class="depo-author-block">
+            <span class="depo-author">Juliane S.</span>
+            <span class="depo-role">Manicure há 2 anos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="stars">★★★★★</div>
+        <p>"Aprendi a fotografar meu trabalho do jeito certo e em 3 semanas meu Instagram cresceu e minha agenda lotou pela primeira vez. Impressionante!"</p>
+        <div class="depo-footer">
+          <div class="depo-avatar"><span class="depo-avatar-initials">CR</span></div>
+          <div class="depo-author-block">
+            <span class="depo-author">Camila R.</span>
+            <span class="depo-role">Nail Designer, Goiânia</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="stars">★★★★★</div>
+        <p>"Achei que era difícil demais fazer Nail Art. A Michele ensina de um jeito tão prático que em poucos dias já estava oferecendo para minhas clientes."</p>
+        <div class="depo-footer">
+          <div class="depo-avatar"><span class="depo-avatar-initials">PM</span></div>
+          <div class="depo-author-block">
+            <span class="depo-author">Priscila M.</span>
+            <span class="depo-role">Nail Designer iniciante</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="stars">★★★★★</div>
+        <p>"O Spa do Pé Premium mudou meu atendimento completamente. Hoje cobro três vezes mais e minhas clientes voltam toda semana. Vale cada centavo."</p>
+        <div class="depo-footer">
+          <div class="depo-avatar"><span class="depo-avatar-initials">FT</span></div>
+          <div class="depo-author-block">
+            <span class="depo-author">Fernanda T.</span>
+            <span class="depo-role">Podóloga e Nail Designer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="stars">★★★★★</div>
+        <p>"A técnica F1 Premium é incrível. Eu tinha medo de gel mas a Michele simplifica tudo. Em uma semana já estava fazendo unhas profissionais de verdade."</p>
+        <div class="depo-footer">
+          <div class="depo-avatar"><span class="depo-avatar-initials">RL</span></div>
+          <div class="depo-author-block">
+            <span class="depo-author">Renata L.</span>
+            <span class="depo-role">Iniciante em Nail Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="depo-card">
+        <div class="stars">★★★★★</div>
+        <p>"Aprendi a montar minha tabela de preços correta e parei de me sentir culpada ao cobrar o valor justo. A Michele deu clareza e confiança que eu precisava."</p>
+        <div class="depo-footer">
+          <div class="depo-avatar"><span class="depo-avatar-initials">DM</span></div>
+          <div class="depo-author-block">
+            <span class="depo-author">Daniela M.</span>
+            <span class="depo-role">Nail Designer, Rondônia</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -609,7 +717,7 @@ footer a { color: var(--gold); text-decoration: none; }
 <section class="cta-section" id="inscricao">
   <div class="container">
     <div class="section-label rv" style="color: var(--gold);">Garanta sua vaga agora</div>
-    <h2 class="rv d1">Inscreva-se na <em>Imersão Nail Designer de Sucesso</em></h2>
+    <h2 class="rv d1">Inscreva-se na Imersão Nail Designer <em>de Sucesso</em></h2>
     <p class="rv d2" style="color: rgba(255,255,255,0.6); max-width: 520px; margin: 16px auto 0;">3 encontros ao vivo com uma das Nail Designers mais reconhecidas do Brasil, materiais exclusivos e oferta especial na última aula.</p>
 
     <div class="countdown-bar rv d2">
@@ -715,46 +823,84 @@ document.querySelectorAll('.faq-q').forEach(q => {
   });
 });
 
-/* CARROSSEL */
+/* CARROSSEL INFINITO — move para a direita, loop sem fim */
 (function() {
   const viewport = document.getElementById('depoViewport');
   const track = document.getElementById('depoTrack');
-  const cards = Array.from(track.querySelectorAll('.depo-card'));
-  const CARD_W = 300, GAP = 24, STEP = CARD_W + GAP;
-  let currentOffset = 0, targetOffset = 0, paused = false, isDragging = false;
-  let dragStartX = 0, dragStartOffset = 0, autoDir = 1;
-  function getMaxOffset() { return Math.max(0, (cards.length - 1) * STEP - (viewport.offsetWidth - CARD_W) / 2); }
-  function clamp(v) { return Math.max(0, Math.min(v, getMaxOffset())); }
-  currentOffset = targetOffset = Math.max(0, (cards.length * STEP - viewport.offsetWidth) / 2);
-  track.style.transform = `translateX(${-currentOffset}px)`;
+  if (!viewport || !track) return;
+
+  const CARD_W = 320, GAP = 28, STEP = CARD_W + GAP;
+  const origCards = Array.from(track.querySelectorAll('.depo-card'));
+  const N = origCards.length;
+
+  /* clone cards 2x antes e depois para loop suave */
+  origCards.forEach(c => track.appendChild(c.cloneNode(true)));
+  origCards.forEach(c => track.insertBefore(c.cloneNode(true), track.firstChild));
+  const allCards = () => Array.from(track.querySelectorAll('.depo-card'));
+
+  /* começa no bloco do meio (índice N) */
+  let pos = N * STEP;
+  track.style.transform = `translateX(${-pos}px)`;
+
+  let speed = 0.55; /* px por frame, direção direita */
+  let paused = false;
+  let isDragging = false, dragStartX = 0, dragStartPos = 0;
+
   function updateCenter() {
-    const cx = currentOffset + viewport.offsetWidth / 2;
-    let best = 0, minD = Infinity;
-    cards.forEach((c, i) => { const d = Math.abs(i * STEP + CARD_W/2 - cx); if (d < minD) { minD = d; best = i; } });
-    cards.forEach((c, i) => c.classList.toggle('center', i === best));
+    const cx = pos + viewport.offsetWidth / 2;
+    allCards().forEach((c, i) => {
+      const cardCenter = i * STEP + CARD_W / 2;
+      c.classList.toggle('center', Math.abs(cardCenter - cx) < STEP / 2);
+    });
   }
-  function lerp(a,b,t){ return a+(b-a)*t; }
+
   function loop() {
     if (!paused && !isDragging) {
-      targetOffset += 0.45 * autoDir;
-      const max = getMaxOffset();
-      if (targetOffset >= max) { targetOffset = max; autoDir = -1; }
-      if (targetOffset <= 0) { targetOffset = 0; autoDir = 1; }
+      pos += speed;
+      /* loop: quando sai do bloco central avança para o clone equivalente */
+      const totalW = N * STEP;
+      if (pos >= totalW * 2) pos -= totalW;
+      if (pos < totalW)      pos += totalW;
     }
-    currentOffset = lerp(currentOffset, targetOffset, 0.06);
-    track.style.transform = `translateX(${-currentOffset}px)`;
+    track.style.transform = `translateX(${-pos}px)`;
     updateCenter();
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
+
+  /* hover pausa */
   viewport.addEventListener('mouseenter', () => { paused = true; });
   viewport.addEventListener('mouseleave', () => { paused = false; });
-  viewport.addEventListener('mousedown', e => { isDragging = true; paused = true; dragStartX = e.clientX; dragStartOffset = currentOffset; e.preventDefault(); });
-  window.addEventListener('mousemove', e => { if (!isDragging) return; targetOffset = clamp(dragStartOffset + (dragStartX - e.clientX)); });
+
+  /* drag mouse */
+  viewport.addEventListener('mousedown', e => {
+    isDragging = true; paused = true;
+    dragStartX = e.clientX; dragStartPos = pos;
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    pos = dragStartPos - (e.clientX - dragStartX);
+    const totalW = N * STEP;
+    if (pos >= totalW * 2) pos -= totalW;
+    if (pos < totalW)      pos += totalW;
+  });
   window.addEventListener('mouseup', () => { if (isDragging) { isDragging = false; paused = false; } });
-  viewport.addEventListener('touchstart', e => { isDragging = true; paused = true; dragStartX = e.touches[0].clientX; dragStartOffset = currentOffset; }, { passive: true });
-  window.addEventListener('touchmove', e => { if (!isDragging) return; targetOffset = clamp(dragStartOffset + (dragStartX - e.touches[0].clientX)); }, { passive: true });
+
+  /* drag touch */
+  viewport.addEventListener('touchstart', e => {
+    isDragging = true; paused = true;
+    dragStartX = e.touches[0].clientX; dragStartPos = pos;
+  }, { passive: true });
+  window.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    pos = dragStartPos - (e.touches[0].clientX - dragStartX);
+    const totalW = N * STEP;
+    if (pos >= totalW * 2) pos -= totalW;
+    if (pos < totalW)      pos += totalW;
+  }, { passive: true });
   window.addEventListener('touchend', () => { isDragging = false; paused = false; });
+
   updateCenter();
 })();
 
