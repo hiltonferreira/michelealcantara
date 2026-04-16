@@ -295,7 +295,7 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 /* ─── CTA SECTION ─── */
 .cta-section { background: linear-gradient(140deg, #1C1410, #3D2419); color: var(--white); text-align: center; padding: 90px 20px; }
 .cta-section h2 { color: var(--white); }
-.cta-section h2 em { color: var(--gold); }
+.cta-section h2 em { color: var(--gold); font-style: italic; }
 /* price-box: fundo escuro + brilho idêntico ao botão CTA */
 .price-box {
   display: inline-block;
@@ -738,7 +738,7 @@ footer a { color: var(--gold); text-decoration: none; }
 <section class="cta-section" id="inscricao">
   <div class="container">
     <div class="section-label rv" style="color: var(--gold);">Garanta sua vaga agora</div>
-    <h2 class="rv d1">Inscreva-se na Imersão Nail Designer <em>de Sucesso</em></h2>
+    <h2 class="rv d1">Inscreva-se na <em>Imersão Nail Designer de Sucesso</em></h2>
     <p class="rv d2" style="color: rgba(255,255,255,0.6); max-width: 520px; margin: 16px auto 0;">3 encontros ao vivo com uma das Nail Designers mais reconhecidas do Brasil, materiais exclusivos e oferta especial na última aula.</p>
 
     <div class="countdown-bar rv d2">
@@ -961,17 +961,29 @@ function checkBlur() {
 window.addEventListener('scroll', checkBlur, { passive: true });
 checkBlur();
 
-/* OBSERVER */
+/* OBSERVER — animação de entrada E saída ao rolar */
 const done = new Set();
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
+      /* entrada: adiciona classe .on com o delay já definido no elemento */
       e.target.classList.add('on');
-      e.target.querySelectorAll('[data-count]').forEach(el => { if (!done.has(el)) { done.add(el); animateCounter(el); } });
-      io.unobserve(e.target);
+      /* contadores: dispara apenas uma vez */
+      e.target.querySelectorAll('[data-count]').forEach(el => {
+        if (!done.has(el)) { done.add(el); animateCounter(el); }
+      });
+    } else {
+      /* saída: remove .on para que a animação de entrada repita no próximo scroll */
+      /* não remove se o elemento for da hero (evita piscar ao carregar) */
+      if (!e.target.closest('.hero')) {
+        e.target.classList.remove('on');
+      }
     }
   });
-}, { threshold: 0.08 });
+}, {
+  threshold: 0.10,
+  rootMargin: '0px 0px -60px 0px'   /* dispara um pouco antes de sair pela base */
+});
 document.querySelectorAll('.rv, .rv-left, .rv-right, .rv-scale').forEach(el => io.observe(el));
 </script>
 </body>
