@@ -50,53 +50,46 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   min-height: 500px;
   display: flex; align-items: center;
   color: var(--white);
+  background: url('michele-foto-bg.webp') center top / cover no-repeat;
 }
-/* FOTO como fundo */
-.hero-bg {
-  position: absolute; inset: 0;
-  z-index: 0;
-}
-.hero-bg img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 75% top;
-  display: block;
-  filter: brightness(0.86) contrast(1.05);
-}
-/* Degradê da esquerda: escurece onde ficam os textos */
-.hero-bg::before {
+/* Degradê da esquerda sobre fundo espelhado */
+.hero::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     to right,
-    rgba(20,12,8,0.94) 0%,
-    rgba(28,20,16,0.85) 28%,
-    rgba(28,20,16,0.50) 50%,
-    rgba(28,20,16,0.08) 72%,
-    transparent 100%
+    rgba(20,12,8,0.96) 0%,
+    rgba(28,20,16,0.88) 25%,
+    rgba(28,20,16,0.60) 48%,
+    rgba(28,20,16,0.15) 65%,
+    transparent 82%
   );
-  z-index: 1;
+  z-index: 1; pointer-events: none;
 }
-/* Degradê inferior: funde com a próxima seção */
-.hero-bg::after {
+/* Degradê inferior */
+.hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(20,12,8,0.60) 0%,
-    rgba(20,12,8,0.12) 18%,
-    transparent 45%
-  );
-  z-index: 1;
+  background: linear-gradient(to top, rgba(20,12,8,0.55) 0%, transparent 40%);
+  z-index: 1; pointer-events: none;
 }
-/* Brilho dourado sutil no lado do texto */
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 70% at 10% 60%, rgba(212,168,67,0.10), transparent 70%);
-  z-index: 2; pointer-events: none;
+/* Expert: height 100% fixa, width automática — nunca corta cabeça nem mãos */
+.hero-expert-wrap {
+  position: absolute;
+  right: 0; top: 0;
+  height: 100%;
+  width: auto;
+  z-index: 2;
+  pointer-events: none;
 }
-/* Conteúdo sobre a foto */
+.hero-expert {
+  position: relative;
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: brightness(0.86) contrast(1.05);
+}
+/* Conteúdo sobre tudo */
 .hero-content {
   position: relative; z-index: 3;
   max-width: 520px;
@@ -135,66 +128,42 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   .hero {
-    height: auto;
-    max-height: none;
-    min-height: unset;
-    flex-direction: column;
-    align-items: stretch;
+    height: auto; max-height: none; min-height: unset;
+    flex-direction: column; align-items: stretch;
     background: #140906;
-    margin: 0;
-    width: 100%;
   }
-  /* Foto da expert: centraliza no rosto dela (lado direito do canvas duplicado) */
-  .hero-bg {
-    position: relative;
-    height: 380px;
-    flex-shrink: 0;
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
+  /* Expert wrapper no topo */
+  .hero-expert-wrap {
+    position: relative; width: 100%; height: 370px;
+    overflow: hidden; flex-shrink: 0; background: #140906;
   }
-  .hero-bg img {
-    /* A expert está nos 50-100% do canvas duplicado, centralizamos em ~62% do canvas */
-    object-position: 62% top;
+  .hero-expert {
+    position: absolute;
+    height: 100%; width: auto;
+    left: 50%; top: 0;
+    transform: translateX(-50%);
+    filter: brightness(0.88) contrast(1.05);
   }
-  .hero-bg::before {
-    background: linear-gradient(
-      to bottom,
-      rgba(20,12,8,0.05) 0%,
-      transparent 15%,
-      transparent 50%,
-      rgba(20,12,8,0.92) 100%
-    );
+  .hero-expert-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 55%, rgba(20,12,8,0.95) 100%);
+    z-index: 1;
   }
-  .hero-bg::after { display: none; }
-
-  /* Área do texto: fundo escuro sólido, tudo centralizado, sem margens */
+  .hero::before, .hero::after { display: none; }
   .hero-content {
-    width: 100%;
-    max-width: 100%;
+    width: 100%; max-width: 100%;
     padding: 28px 24px 48px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex; flex-direction: column; align-items: center;
     background: #140906;
-    position: relative;
-    margin: 0;
+    position: relative; z-index: 3;
     box-sizing: border-box;
   }
-  .hero h1 {
-    font-size: clamp(28px, 7vw, 38px);
-    max-width: 100%;
-    text-align: center;
-  }
-  .hero-sub {
-    font-size: 15px;
-    max-width: 100%;
-    text-align: center;
-  }
+  .hero h1 { font-size: clamp(28px, 7vw, 38px); max-width: 100%; text-align: center; }
+  .hero-sub { font-size: 15px; max-width: 100%; text-align: center; }
   .hero-tag { align-self: center; }
   .hero-date { text-align: center; }
-  .hero::before { display: none; }
 }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -582,12 +551,13 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- HERO -->
 <section class="hero">
-  <!-- FOTO DE FUNDO (absolute no desktop, relative no mobile) -->
-  <div class="hero-bg">
-    <img src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
+
+  <!-- EXPERT: desktop = absolute right height:100%, mobile = dentro do wrap -->
+  <div class="hero-expert-wrap">
+    <img class="hero-expert" src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
   </div>
 
-  <!-- CONTEÚDO SOBRE A FOTO -->
+  <!-- CONTEÚDO -->
   <div class="hero-content">
     <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
     <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
