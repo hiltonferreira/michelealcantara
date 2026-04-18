@@ -73,11 +73,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   background: linear-gradient(to top, rgba(15,7,4,0.55) 0%, transparent 38%);
   z-index: 1; pointer-events: none;
 }
-/* Conteúdo — largura maior para controlar quebra de linha */
+/* Conteúdo — 56% garante área útil de ~750px para linha 3 da h1 */
 .hero-content {
   position: relative; z-index: 2;
-  width: 46%;
-  max-width: 560px;
+  width: 56%;
+  max-width: 860px;
   padding: 0 0 0 6%;
 }
 .hero-tag {
@@ -92,22 +92,23 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   margin-bottom: 20px;
   animation: fadeDown 0.7s 0.08s ease both;
 }
-/* h1: font-size calibrado para 3 linhas na largura de 46% da tela */
+/* h1: font maior + max-width controlando quebra em 3 linhas */
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 3vw, 46px);
+  font-size: clamp(34px, 3.2vw, 50px);
   font-weight: 700; line-height: 1.12;
   margin: 0 0 18px;
+  max-width: 750px;
   animation: fadeDown 0.7s 0.15s ease both;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
-/* sub: largura limitada para forçar 2 linhas */
+/* sub: max-width calibrado para exatamente 2 linhas */
 .hero-sub {
-  font-size: clamp(14px, 1.25vw, 16.5px);
+  font-size: clamp(14px, 1.2vw, 16px);
   color: rgba(255,255,255,0.82);
   margin: 0 0 30px;
   font-weight: 300; line-height: 1.7;
-  max-width: 380px;
+  max-width: 520px;
   animation: fadeDown 0.7s 0.3s ease both;
 }
 .hero .btn-wrap { animation: fadeDown 0.7s 0.45s ease both; display: inline-block; }
