@@ -341,75 +341,73 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .cert-watermark { font-size: 8.5px; color: rgba(139,94,60,0.3); letter-spacing: 1px; }
 
 /* ─── ABOUT ─── */
-.about { background: var(--cream); padding: 80px 20px; }
+.about { background: var(--cream); }
 .about-card {
   display: grid;
-  grid-template-columns: 42% 1fr;
-  border-radius: 20px;
+  grid-template-columns: 38% 1fr;
+  border-radius: 16px;
   overflow: hidden;
-  background: var(--cream);
+  background: var(--white);
   border: 1px solid rgba(200,149,108,0.18);
-  box-shadow: 0 4px 40px rgba(139,94,60,0.08);
-  min-height: 480px;
-  max-width: 1000px;
-  margin: 0 auto;
+  box-shadow: 0 4px 32px rgba(139,94,60,0.07);
+  min-height: 340px;
+  width: 100%;
 }
 @media (max-width: 780px) { .about-card { grid-template-columns: 1fr; } }
 
-/* Foto portrait à esquerda — altura total */
+/* Foto portrait à esquerda */
 .about-photo {
   position: relative;
   overflow: hidden;
   background: #c4a87a;
-  min-height: 480px;
+  min-height: 340px;
 }
 .about-photo img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 55% 12%;
+  object-position: 55% 15%;
   display: block;
   filter: brightness(0.93) contrast(1.04);
 }
-/* fade suave apenas na borda direita para fundir com o conteúdo */
 .about-photo-fade {
   position: absolute; inset: 0;
-  background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
+  background: linear-gradient(to right, transparent 65%, var(--white) 100%);
   z-index: 1;
 }
 .about-photo-fade-bottom { display: none; }
 @media (max-width: 780px) {
-  .about-photo { min-height: 320px; }
-  .about-photo-fade { background: linear-gradient(to bottom, transparent 60%, var(--cream) 100%); }
+  .about-photo { min-height: 280px; }
+  .about-photo-fade { background: linear-gradient(to bottom, transparent 60%, var(--white) 100%); }
 }
 
 /* Conteúdo à direita */
 .about-content {
-  padding: 48px 52px 48px 32px;
-  display: flex; flex-direction: column; justify-content: center; gap: 22px;
-  background: var(--cream);
+  padding: 36px 44px 36px 28px;
+  display: flex; flex-direction: column; justify-content: center; gap: 18px;
+  background: var(--white);
 }
 .about-content .section-label { color: var(--rose); }
-.about-content h2 { font-size: clamp(22px, 2.5vw, 32px); margin-bottom: 0; }
+.about-content h2 { font-size: clamp(20px, 2.2vw, 30px); margin-bottom: 0; }
 
 /* Números em linha */
 .about-nums {
   display: flex; gap: 32px; flex-wrap: wrap;
-  padding: 18px 0;
-  border-top: 1px solid rgba(200,149,108,0.22);
-  border-bottom: 1px solid rgba(200,149,108,0.22);
+  padding: 14px 0;
+  border-top: 1px solid rgba(200,149,108,0.2);
+  border-bottom: 1px solid rgba(200,149,108,0.2);
 }
-.about-num-item { display: flex; flex-direction: column; gap: 3px; }
+.about-num-item { display: flex; flex-direction: column; gap: 2px; }
 .about-num-val {
   font-family: 'Playfair Display', serif;
-  font-size: 26px; font-weight: 400; line-height: 1;
+  font-size: 22px; font-weight: 400; line-height: 1;
   color: var(--rose-dark);
 }
-.about-num-desc { font-size: 12px; color: var(--muted); }
+.about-num-desc { font-size: 11px; color: var(--muted); }
 
-.about p { font-size: 15px; color: var(--mid); line-height: 1.8; margin: 0; }
-.credentials { display: flex; flex-direction: column; gap: 8px; }
-.cred-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
+.about p { font-size: 14px; color: var(--mid); line-height: 1.75; margin: 0; }
+.credentials { display: flex; flex-direction: column; gap: 7px; }
+.cred-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--mid); }
 .cred-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
 /* Stats cards — mantido para compatibilidade */
