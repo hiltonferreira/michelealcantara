@@ -341,71 +341,83 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .cert-watermark { font-size: 8.5px; color: rgba(139,94,60,0.3); letter-spacing: 1px; }
 
 /* ─── ABOUT ─── */
-.about { background: var(--white); }
-.about-grid {
+.about { background: var(--white); padding: 0; }
+.about-card {
   display: grid;
-  grid-template-columns: 260px 1fr 1fr;
-  gap: 52px;
-  align-items: center;
-}
-@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
-
-/* Moldura oval com frame dourado */
-.about-photo-wrap {
-  display: flex; flex-direction: column; align-items: center; gap: 14px;
-}
-.about-oval-frame {
-  width: 230px; height: 290px;
-  border-radius: 50%;
-  padding: 5px;
-  background: linear-gradient(135deg, #C9A84C 0%, #E8D5A0 35%, #C9A84C 60%, #8B6914 80%, #C9A84C 100%);
-  box-shadow: 0 8px 32px rgba(201,168,76,0.25), 0 2px 8px rgba(139,94,60,0.15);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.about-oval-frame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(201,168,76,0.35), 0 4px 12px rgba(139,94,60,0.2);
-}
-.about-oval-inner {
-  width: 100%; height: 100%;
-  border-radius: 50%;
+  grid-template-columns: 320px 1fr;
+  border-radius: 20px;
   overflow: hidden;
-  border: 3px solid #FDFAF4;
+  background: var(--cream);
+  border: 1px solid rgba(200,149,108,0.15);
+  min-height: 400px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.about-oval-inner img {
+@media (max-width: 780px) { .about-card { grid-template-columns: 1fr; } }
+
+/* Foto portrait à esquerda — altura total */
+.about-photo {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(170deg, #c4a87a 0%, #7a5030 45%, #1c1410 100%);
+  display: flex; align-items: flex-end; justify-content: center;
+  min-height: 420px;
+}
+.about-photo img {
+  position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 10%;
   display: block;
-  filter: contrast(1.03) brightness(0.98);
+  filter: brightness(0.92) contrast(1.04);
 }
-.about-photo-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 22px; color: var(--rose-dark);
-  text-align: center; line-height: 1;
+.about-photo-fade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, transparent 55%, var(--cream) 100%);
+  z-index: 1;
 }
-.about-photo-role {
-  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--muted); text-align: center; margin-top: -8px;
+.about-photo-fade-bottom {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,20,16,0.35) 0%, transparent 40%);
+  z-index: 1;
+}
+@media (max-width: 780px) {
+  .about-photo { min-height: 300px; }
+  .about-photo-fade { background: linear-gradient(to bottom, transparent 60%, var(--cream) 100%); }
 }
 
-/* Texto */
-.about p { font-size: 17px; color: var(--mid); margin-bottom: 18px; line-height: 1.8; }
-.credentials { margin: 16px 0 24px; display: flex; flex-direction: column; gap: 9px; }
+/* Conteúdo à direita */
+.about-content {
+  padding: 44px 48px 44px 36px;
+  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+}
+.about-content .section-label { color: var(--rose); }
+.about-content h2 { font-size: clamp(22px, 2.5vw, 32px); margin-bottom: 0; }
+
+/* Números em linha */
+.about-nums {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  padding: 18px 0;
+  border-top: 1px solid rgba(200,149,108,0.2);
+  border-bottom: 1px solid rgba(200,149,108,0.2);
+}
+.about-num-item { display: flex; flex-direction: column; gap: 2px; }
+.about-num-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 400; line-height: 1;
+  color: var(--rose-dark);
+}
+.about-num-desc { font-size: 12px; color: var(--muted); }
+
+.about p { font-size: 15px; color: var(--mid); line-height: 1.8; margin: 0; }
+.credentials { display: flex; flex-direction: column; gap: 8px; }
 .cred-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
-.cred-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.cred-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-/* Stats */
-.stat-cards { display: flex; flex-direction: column; gap: 18px; }
-.stat-card { border-radius: 12px; padding: 24px 28px; border: 1px solid transparent; transition: transform 0.3s ease; }
-.stat-card:hover { transform: translateX(4px); }
-.stat-card.gold { background: var(--gold-light); border-color: rgba(212,168,67,0.3); }
-.stat-card.rose { background: var(--rose-light); border-color: rgba(200,149,108,0.3); }
-.stat-card.cream { background: var(--cream); border-color: rgba(92,64,51,0.15); }
+/* Stats cards — mantido para compatibilidade mas não usado nesta seção */
+.stat-cards { display: none; }
+.stat-card { display: none; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; line-height: 1; }
-.stat-card.gold .stat-num, .stat-card.rose .stat-num { color: var(--rose-dark); }
-.stat-card.cream .stat-num { color: var(--mid); }
 .stat-desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
 /* ─── DEPOIMENTOS — premium ─── */
@@ -791,48 +803,50 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- SOBRE A MICHELE -->
 <section class="about">
-  <div class="container">
-    <div class="about-grid">
+  <div class="container" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="about-card rv-scale">
 
-      <!-- COLUNA 1: Foto oval com frame dourado -->
-      <div class="about-photo-wrap rv-scale">
-        <div class="about-oval-frame">
-          <div class="about-oval-inner">
-            <img src="michele-about.webp" alt="Michele Alcântara">
-          </div>
-        </div>
-        <div class="about-photo-name">Michele Alcântara</div>
-        <div class="about-photo-role">Nail Designer &amp; Instrutora</div>
+      <!-- COLUNA ESQUERDA: Foto portrait altura total -->
+      <div class="about-photo">
+        <img src="michele-about.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
+        <div class="about-photo-fade"></div>
+        <div class="about-photo-fade-bottom"></div>
       </div>
 
-      <!-- COLUNA 2: Texto -->
-      <div class="about-text rv-left">
-        <div class="section-label">Quem vai te guiar</div>
-        <h2>Michele Alcântara, <em>a Nail Designer que transforma</em></h2>
-        <p>Com mais de 7 anos dedicados ao universo das unhas, Michele construiu uma carreira sólida como Nail Designer e instrutora de alto padrão. Mais do que embelezar, ela educa, e já formou mais de 100 alunas que hoje vivem exclusivamente de Nail Design.</p>
+      <!-- COLUNA DIREITA: Texto + números + credenciais -->
+      <div class="about-content">
+        <div>
+          <div class="section-label">Quem vai te guiar</div>
+          <h2>Michele Alcântara, <em>a Nail Designer que transforma</em></h2>
+        </div>
+
+        <p>Com mais de 7 anos dedicados ao universo das unhas, Michele construiu uma carreira sólida como Nail Designer e instrutora de alto padrão. Mais do que embelezar, ela educa — e já formou mais de 100 alunas que hoje vivem exclusivamente de Nail Design.</p>
+
+        <!-- Números em linha -->
+        <div class="about-nums">
+          <div class="about-num-item">
+            <span class="about-num-val" data-count="7" data-prefix="+" data-suffix=" anos">+0 anos</span>
+            <span class="about-num-desc">de experiência</span>
+          </div>
+          <div class="about-num-item">
+            <span class="about-num-val" data-count="5000" data-prefix="+" data-suffix=" clientes">+0 clientes</span>
+            <span class="about-num-desc">atendidas</span>
+          </div>
+          <div class="about-num-item">
+            <span class="about-num-val" data-count="100" data-prefix="+" data-suffix=" alunas">+0 alunas</span>
+            <span class="about-num-desc">formadas</span>
+          </div>
+        </div>
+
+        <!-- Credenciais -->
         <div class="credentials">
           <div class="cred-item"><span class="cred-dot"></span>Instrutora Fada Pro Master</div>
           <div class="cred-item"><span class="cred-dot"></span>Instrutora Oficial King Nails Pro</div>
           <div class="cred-item"><span class="cred-dot"></span>Instrutora Podal Russo</div>
           <div class="cred-item"><span class="cred-dot"></span>Parceira Oficial King Nails Pro</div>
         </div>
-        <p><a href="https://www.instagram.com/michelealcantaranail/" target="_blank" style="color: var(--rose-dark); font-size: 14px; font-weight: 500;">@michelealcantaranail no Instagram →</a></p>
-      </div>
 
-      <!-- COLUNA 3: Stats -->
-      <div class="stat-cards rv-right">
-        <div class="stat-card gold d1">
-          <div class="stat-num" data-count="7" data-prefix="+" data-suffix=" anos">+0 anos</div>
-          <div class="stat-desc">de experiência profissional</div>
-        </div>
-        <div class="stat-card rose d2">
-          <div class="stat-num" data-count="5000" data-prefix="+" data-suffix=" clientes">+0 clientes</div>
-          <div class="stat-desc">atendidas ao longo da carreira</div>
-        </div>
-        <div class="stat-card cream d3">
-          <div class="stat-num" data-count="100" data-prefix="+" data-suffix=" alunas">+0 alunas</div>
-          <div class="stat-desc">formadas em cursos e imersões</div>
-        </div>
+        <p><a href="https://www.instagram.com/michelealcantaranail/" target="_blank" style="color: var(--rose-dark); font-size: 14px; font-weight: 500;">@michelealcantaranail no Instagram →</a></p>
       </div>
 
     </div>
