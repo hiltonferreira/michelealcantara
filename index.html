@@ -342,12 +342,61 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 
 /* ─── ABOUT ─── */
 .about { background: var(--white); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-@media (max-width: 680px) { .about-grid { grid-template-columns: 1fr; } }
+.about-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* Moldura oval com frame dourado */
+.about-photo-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.about-oval-frame {
+  width: 230px; height: 290px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, #C9A84C 0%, #E8D5A0 35%, #C9A84C 60%, #8B6914 80%, #C9A84C 100%);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.25), 0 2px 8px rgba(139,94,60,0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.about-oval-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(201,168,76,0.35), 0 4px 12px rgba(139,94,60,0.2);
+}
+.about-oval-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #FDFAF4;
+}
+.about-oval-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  filter: contrast(1.03) brightness(0.98);
+}
+.about-photo-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px; color: var(--rose-dark);
+  text-align: center; line-height: 1;
+}
+.about-photo-role {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); text-align: center; margin-top: -8px;
+}
+
+/* Texto */
 .about p { font-size: 17px; color: var(--mid); margin-bottom: 18px; line-height: 1.8; }
 .credentials { margin: 16px 0 24px; display: flex; flex-direction: column; gap: 9px; }
 .cred-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
 .cred-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* Stats */
 .stat-cards { display: flex; flex-direction: column; gap: 18px; }
 .stat-card { border-radius: 12px; padding: 24px 28px; border: 1px solid transparent; transition: transform 0.3s ease; }
 .stat-card:hover { transform: translateX(4px); }
@@ -744,6 +793,19 @@ footer a { color: var(--gold); text-decoration: none; }
 <section class="about">
   <div class="container">
     <div class="about-grid">
+
+      <!-- COLUNA 1: Foto oval com frame dourado -->
+      <div class="about-photo-wrap rv-scale">
+        <div class="about-oval-frame">
+          <div class="about-oval-inner">
+            <img src="michele-about.webp" alt="Michele Alcântara">
+          </div>
+        </div>
+        <div class="about-photo-name">Michele Alcântara</div>
+        <div class="about-photo-role">Nail Designer &amp; Instrutora</div>
+      </div>
+
+      <!-- COLUNA 2: Texto -->
       <div class="about-text rv-left">
         <div class="section-label">Quem vai te guiar</div>
         <h2>Michele Alcântara, <em>a Nail Designer que transforma</em></h2>
@@ -756,6 +818,8 @@ footer a { color: var(--gold); text-decoration: none; }
         </div>
         <p><a href="https://www.instagram.com/michelealcantaranail/" target="_blank" style="color: var(--rose-dark); font-size: 14px; font-weight: 500;">@michelealcantaranail no Instagram →</a></p>
       </div>
+
+      <!-- COLUNA 3: Stats -->
       <div class="stat-cards rv-right">
         <div class="stat-card gold d1">
           <div class="stat-num" data-count="7" data-prefix="+" data-suffix=" anos">+0 anos</div>
@@ -770,6 +834,7 @@ footer a { color: var(--gold); text-decoration: none; }
           <div class="stat-desc">formadas em cursos e imersões</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
