@@ -341,15 +341,16 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .cert-watermark { font-size: 8.5px; color: rgba(139,94,60,0.3); letter-spacing: 1px; }
 
 /* ─── ABOUT ─── */
-.about { background: var(--white); padding: 0; }
+.about { background: var(--cream); padding: 80px 20px; }
 .about-card {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 42% 1fr;
   border-radius: 20px;
   overflow: hidden;
   background: var(--cream);
-  border: 1px solid rgba(200,149,108,0.15);
-  min-height: 400px;
+  border: 1px solid rgba(200,149,108,0.18);
+  box-shadow: 0 4px 40px rgba(139,94,60,0.08);
+  min-height: 480px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -359,49 +360,46 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .about-photo {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(170deg, #c4a87a 0%, #7a5030 45%, #1c1410 100%);
-  display: flex; align-items: flex-end; justify-content: center;
-  min-height: 420px;
+  background: #c4a87a;
+  min-height: 480px;
 }
 .about-photo img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: 55% 12%;
   display: block;
-  filter: brightness(0.92) contrast(1.04);
+  filter: brightness(0.93) contrast(1.04);
 }
+/* fade suave apenas na borda direita para fundir com o conteúdo */
 .about-photo-fade {
   position: absolute; inset: 0;
-  background: linear-gradient(to right, transparent 55%, var(--cream) 100%);
+  background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
   z-index: 1;
 }
-.about-photo-fade-bottom {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(28,20,16,0.35) 0%, transparent 40%);
-  z-index: 1;
-}
+.about-photo-fade-bottom { display: none; }
 @media (max-width: 780px) {
-  .about-photo { min-height: 300px; }
+  .about-photo { min-height: 320px; }
   .about-photo-fade { background: linear-gradient(to bottom, transparent 60%, var(--cream) 100%); }
 }
 
 /* Conteúdo à direita */
 .about-content {
-  padding: 44px 48px 44px 36px;
-  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  padding: 48px 52px 48px 32px;
+  display: flex; flex-direction: column; justify-content: center; gap: 22px;
+  background: var(--cream);
 }
 .about-content .section-label { color: var(--rose); }
 .about-content h2 { font-size: clamp(22px, 2.5vw, 32px); margin-bottom: 0; }
 
 /* Números em linha */
 .about-nums {
-  display: flex; gap: 28px; flex-wrap: wrap;
+  display: flex; gap: 32px; flex-wrap: wrap;
   padding: 18px 0;
-  border-top: 1px solid rgba(200,149,108,0.2);
-  border-bottom: 1px solid rgba(200,149,108,0.2);
+  border-top: 1px solid rgba(200,149,108,0.22);
+  border-bottom: 1px solid rgba(200,149,108,0.22);
 }
-.about-num-item { display: flex; flex-direction: column; gap: 2px; }
+.about-num-item { display: flex; flex-direction: column; gap: 3px; }
 .about-num-val {
   font-family: 'Playfair Display', serif;
   font-size: 26px; font-weight: 400; line-height: 1;
@@ -414,7 +412,7 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .cred-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
 .cred-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-/* Stats cards — mantido para compatibilidade mas não usado nesta seção */
+/* Stats cards — mantido para compatibilidade */
 .stat-cards { display: none; }
 .stat-card { display: none; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; line-height: 1; }
@@ -803,7 +801,7 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- SOBRE A MICHELE -->
 <section class="about">
-  <div class="container" style="padding-top: 80px; padding-bottom: 80px;">
+  <div class="container">
     <div class="about-card rv-scale">
 
       <!-- COLUNA ESQUERDA: Foto portrait altura total -->
