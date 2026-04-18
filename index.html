@@ -32,77 +32,67 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 
 /* ─── HERO ─── */
 .hero {
-  background: linear-gradient(160deg, #1C1410 0%, #3D2419 55%, #5C3322 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 680px;
+  display: flex; align-items: center;
   color: var(--white);
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  min-height: 620px;
-  display: flex; align-items: stretch;
 }
-/* camada radial dourada de fundo */
-.hero::before {
-  content: '';
+/* FOTO como fundo */
+.hero-bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 20% 60%, rgba(212,168,67,0.12), transparent 70%);
-  z-index: 1; pointer-events: none;
+  z-index: 0;
 }
-/* layout interno: texto esquerda + foto direita */
-.hero-inner {
-  display: flex; align-items: stretch;
-  width: 100%; position: relative; z-index: 2;
-}
-/* coluna de texto */
-.hero-content {
-  flex: 0 0 52%;
-  padding: 80px 48px 70px 6%;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; z-index: 3;
-}
-/* coluna da foto */
-.hero-photo-col {
-  flex: 0 0 48%;
-  position: relative;
-  overflow: hidden;
-}
-.hero-photo-col img {
+.hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  filter: contrast(1.04) brightness(0.97);
+  filter: brightness(0.88) contrast(1.05);
 }
-/* sombra da esquerda sobre a foto — funde com o fundo escuro */
-.hero-photo-col::before {
+/* Degradê da esquerda: escurece onde ficam os textos */
+.hero-bg::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     to right,
-    #1C1410 0%,
-    rgba(61,36,25,0.75) 22%,
-    rgba(61,36,25,0.25) 45%,
-    transparent 65%
+    rgba(20,12,8,0.92) 0%,
+    rgba(28,20,16,0.82) 30%,
+    rgba(28,20,16,0.55) 55%,
+    rgba(28,20,16,0.10) 75%,
+    transparent 100%
   );
-  z-index: 2; pointer-events: none;
+  z-index: 1;
 }
-/* sombra inferior sobre a foto — funde com a próxima seção */
-.hero-photo-col::after {
+/* Degradê inferior: funde com a próxima seção */
+.hero-bg::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     to top,
-    rgba(28,20,16,0.85) 0%,
-    rgba(28,20,16,0.35) 25%,
+    rgba(20,12,8,0.70) 0%,
+    rgba(20,12,8,0.20) 25%,
     transparent 55%
   );
+  z-index: 1;
+}
+/* Brilho dourado sutil no lado do texto */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 10% 60%, rgba(212,168,67,0.10), transparent 70%);
   z-index: 2; pointer-events: none;
 }
-/* texto */
+/* Conteúdo sobre a foto */
+.hero-content {
+  position: relative; z-index: 3;
+  max-width: 580px;
+  padding: 90px 48px 80px 6%;
+}
 .hero-tag {
   display: inline-block; background: var(--gold); color: var(--dark);
   font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
   padding: 6px 18px; border-radius: 2px; margin-bottom: 10px;
-  align-self: flex-start;
   animation: fadeDown 0.7s ease both;
 }
 .hero-date {
@@ -113,36 +103,37 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 }
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 3.8vw, 58px);
+  font-size: clamp(32px, 4.2vw, 62px);
   font-weight: 700; line-height: 1.1;
   margin: 0 0 22px;
   animation: fadeDown 0.7s 0.15s ease both;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
 .hero-sub {
-  font-size: clamp(15px, 1.6vw, 18px);
-  color: rgba(255,255,255,0.72);
-  max-width: 480px;
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: rgba(255,255,255,0.78);
   margin: 0 0 36px;
-  font-weight: 300;
-  line-height: 1.65;
+  font-weight: 300; line-height: 1.7;
   animation: fadeDown 0.7s 0.3s ease both;
 }
 .hero .btn-wrap { animation: fadeDown 0.7s 0.45s ease both; display: inline-block; }
 
-/* mobile: empilha foto em cima, texto em baixo */
 @media (max-width: 768px) {
-  .hero { flex-direction: column; min-height: unset; }
-  .hero-inner { flex-direction: column; }
-  .hero-content { flex: none; padding: 40px 24px 44px; text-align: center; align-items: center; }
-  .hero-content .hero-tag { align-self: center; }
-  .hero-photo-col { flex: none; height: 340px; order: -1; }
-  .hero-photo-col::before {
-    background: linear-gradient(to bottom, transparent 40%, #1C1410 100%);
+  .hero { min-height: 520px; align-items: flex-end; }
+  .hero-bg::before {
+    background: linear-gradient(
+      to top,
+      rgba(20,12,8,0.96) 0%,
+      rgba(20,12,8,0.80) 45%,
+      rgba(20,12,8,0.30) 75%,
+      transparent 100%
+    );
   }
-  .hero-photo-col::after { display: none; }
-  .hero h1 { font-size: clamp(26px, 7vw, 38px); }
-  .hero-sub { max-width: 100%; font-size: 15px; }
+  .hero-content {
+    padding: 32px 24px 44px;
+    max-width: 100%;
+  }
+  .hero h1 { font-size: clamp(28px, 7.5vw, 40px); }
 }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -530,32 +521,28 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
+  <!-- FOTO DE FUNDO -->
+  <div class="hero-bg">
+    <img src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
+  </div>
 
-    <!-- COLUNA ESQUERDA: texto -->
-    <div class="hero-content">
-      <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
-      <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
-      <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
-      <p class="hero-sub">3 encontros intensivos ao vivo com a <span style="color:#fff;font-weight:300;">instrutora</span> <em style="font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:400;font-size:1.12em;">Michele Alcântara</em>, mais de 7 anos formando Nail Designers de alto padrão</p>
-      <div class="btn-wrap">
-        <a href="#inscricao" class="btn-cta">
-          <div class="btn-inner-wrap">
-            <div class="btn-icon"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-            <div class="btn-texts">
-              <span class="btn-txt1">Quero me inscrever</span>
-              <span class="btn-txt2">Garantir minha<br>vaga por R$ 27</span>
-            </div>
+  <!-- CONTEÚDO SOBRE A FOTO -->
+  <div class="hero-content">
+    <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
+    <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
+    <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
+    <p class="hero-sub">3 encontros intensivos ao vivo com a <span style="color:#fff;font-weight:300;">instrutora</span> <em style="font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:400;font-size:1.12em;">Michele Alcântara</em>, mais de 7 anos formando Nail Designers de alto padrão</p>
+    <div class="btn-wrap">
+      <a href="#inscricao" class="btn-cta">
+        <div class="btn-inner-wrap">
+          <div class="btn-icon"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+          <div class="btn-texts">
+            <span class="btn-txt1">Quero me inscrever</span>
+            <span class="btn-txt2">Garantir minha<br>vaga por R$ 27</span>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
-
-    <!-- COLUNA DIREITA: foto -->
-    <div class="hero-photo-col">
-      <img src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
-    </div>
-
   </div>
 </section>
 
