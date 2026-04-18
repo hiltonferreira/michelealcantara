@@ -14,6 +14,17 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+@media (max-width: 768px) {
+  body { background: #140906; }
+  /* Restore cream after hero */
+  .promise, .forwho, .aulas, .certificado, .about, .depoimentos, .cta-section, .faq, footer { background-color: revert; }
+  .forwho { background: var(--white) !important; }
+  .promise { background: var(--rose-light) !important; }
+  .certificado { background: var(--cream) !important; }
+  .about { background: var(--white) !important; }
+  .depoimentos { background: var(--rose-light) !important; }
+  .faq { background: var(--cream) !important; }
+}
 
 /* ─── TICKER ─── */
 .ticker-block { width: 100%; overflow: hidden; display: block; }
@@ -129,23 +140,35 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     min-height: unset;
     flex-direction: column;
     align-items: stretch;
-    background: #14090600;
+    background: #140906;
+    margin: 0;
+    width: 100%;
   }
-  /* Foto da expert centralizada, corpo completo visível */
+  /* Foto da expert: centraliza no rosto dela (lado direito do canvas duplicado) */
   .hero-bg {
     position: relative;
-    height: 360px;
+    height: 380px;
     flex-shrink: 0;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
   }
   .hero-bg img {
-    object-position: 75% top;
+    /* A expert está nos 50-100% do canvas duplicado, centralizamos em ~62% do canvas */
+    object-position: 62% top;
   }
   .hero-bg::before {
-    background: linear-gradient(to bottom, rgba(20,12,8,0.15) 0%, transparent 20%, transparent 55%, rgba(20,12,8,0.95) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(20,12,8,0.05) 0%,
+      transparent 15%,
+      transparent 50%,
+      rgba(20,12,8,0.92) 100%
+    );
   }
   .hero-bg::after { display: none; }
 
-  /* Área do texto: fundo escuro sólido, tudo centralizado */
+  /* Área do texto: fundo escuro sólido, tudo centralizado, sem margens */
   .hero-content {
     width: 100%;
     max-width: 100%;
@@ -156,6 +179,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     align-items: center;
     background: #140906;
     position: relative;
+    margin: 0;
+    box-sizing: border-box;
   }
   .hero h1 {
     font-size: clamp(28px, 7vw, 38px);
