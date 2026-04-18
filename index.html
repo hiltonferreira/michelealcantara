@@ -106,8 +106,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   animation: fadeDown 0.7s 0.3s ease both;
 }
 .hero .btn-wrap { animation: fadeDown 0.7s 0.45s ease both; display: inline-block; }
-/* hero-bg: não usado mais no desktop, mantido para mobile */
-.hero-bg { display: none; }
+/* hero-bg: invisível no desktop, só aparece no mobile */
+.hero-bg { display: none; visibility: hidden; width: 0; height: 0; overflow: hidden; position: absolute; }
 
 /* ── MOBILE ── */
 @media (max-width: 768px) {
@@ -118,6 +118,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   }
   .hero-bg {
     display: block;
+    visibility: visible;
     position: relative; width: 100%; height: 370px;
     overflow: hidden; flex-shrink: 0;
   }
@@ -535,12 +536,12 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- HERO -->
 <section class="hero">
-  <!-- FOTO ÚNICA: fundo espelhado + expert, com degradês CSS por cima -->
+  <!-- FOTO MOBILE: só aparece em telas pequenas via CSS -->
   <div class="hero-bg">
     <img src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
   </div>
 
-  <!-- CONTEÚDO -->
+  <!-- CONTEÚDO: textos e botão -->
   <div class="hero-content">
     <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
     <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
