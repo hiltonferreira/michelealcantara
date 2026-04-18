@@ -34,9 +34,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .hero {
   position: relative;
   overflow: hidden;
-  height: 90vh;
-  max-height: 820px;
-  min-height: 580px;
+  height: 81vh;
+  max-height: 738px;
+  min-height: 500px;
   display: flex; align-items: center;
   color: var(--white);
 }
@@ -48,7 +48,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 60% 55%;
+  object-position: 62% top;
   display: block;
   filter: brightness(0.86) contrast(1.05);
 }
@@ -88,9 +88,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* Conteúdo sobre a foto */
 .hero-content {
   position: relative; z-index: 3;
-  width: 38%;
-  max-width: 420px;
-  padding: 0 32px 0 6%;
+  max-width: 520px;
+  padding: 0 40px 0 6%;
 }
 .hero-tag {
   display: inline-block; background: var(--gold); color: var(--dark);
@@ -104,23 +103,20 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   margin-bottom: 20px;
   animation: fadeDown 0.7s 0.08s ease both;
 }
-/* h1: tamanho calibrado para quebrar em exatamente 3 linhas */
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 2.2vw, 36px);
-  font-weight: 700; line-height: 1.15;
-  margin: 0 0 18px;
-  max-width: 260px;
+  font-size: clamp(32px, 3.2vw, 52px);
+  font-weight: 700; line-height: 1.12;
+  margin: 0 0 20px;
   animation: fadeDown 0.7s 0.15s ease both;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
-/* hero-sub: calibrado para 2 linhas */
 .hero-sub {
-  font-size: clamp(12.5px, 0.95vw, 14px);
+  font-size: clamp(15px, 1.4vw, 18px);
   color: rgba(255,255,255,0.78);
-  margin: 0 0 30px;
-  font-weight: 300; line-height: 1.65;
-  max-width: 270px;
+  margin: 0 0 32px;
+  font-weight: 300; line-height: 1.7;
+  max-width: 460px;
   animation: fadeDown 0.7s 0.3s ease both;
 }
 .hero .btn-wrap { animation: fadeDown 0.7s 0.45s ease both; display: inline-block; }
@@ -133,38 +129,46 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     min-height: unset;
     flex-direction: column;
     align-items: stretch;
+    background: #14090600;
   }
-  /* Foto da expert no topo — alta o suficiente para mostrar mãos */
+  /* Foto da expert centralizada, corpo completo visível */
   .hero-bg {
     position: relative;
-    height: 340px;
+    height: 360px;
     flex-shrink: 0;
   }
   .hero-bg img {
-    /* centraliza no rosto mas desce para aparecer as mãos */
-    object-position: 55% 30%;
+    object-position: center top;
   }
   .hero-bg::before {
-    background: linear-gradient(to bottom, transparent 55%, rgba(20,12,8,0.92) 100%);
+    background: linear-gradient(to bottom, rgba(20,12,8,0.15) 0%, transparent 20%, transparent 55%, rgba(20,12,8,0.95) 100%);
   }
   .hero-bg::after { display: none; }
 
-  /* Área do texto: fundo duplica imagem alinhada à esquerda */
+  /* Área do texto: fundo escuro sólido, tudo centralizado */
   .hero-content {
     width: 100%;
     max-width: 100%;
-    padding: 28px 24px 44px;
+    padding: 28px 24px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #140906;
     position: relative;
-    background:
-      linear-gradient(to right, rgba(20,12,8,0.94) 0%, rgba(20,12,8,0.94) 100%),
-      url('michele-foto.webp') left center / auto 100% no-repeat;
-    background-blend-mode: multiply, normal;
   }
   .hero h1 {
-    font-size: clamp(26px, 7vw, 36px);
+    font-size: clamp(28px, 7vw, 38px);
     max-width: 100%;
+    text-align: center;
   }
-  .hero-sub { max-width: 100%; font-size: 14px; }
+  .hero-sub {
+    font-size: 15px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero-tag { align-self: center; }
+  .hero-date { text-align: center; }
   .hero::before { display: none; }
 }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
