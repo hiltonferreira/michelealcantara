@@ -50,44 +50,45 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   min-height: 500px;
   display: flex; align-items: center;
   color: var(--white);
-  background: url('michele-foto-bg.webp') center top / cover no-repeat;
 }
-/* Degradê da esquerda sobre fundo espelhado */
-.hero::before {
+/* Foto de fundo: imagem única com fundo espelhado + expert original */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 62% top;
+  display: block;
+  filter: brightness(0.88) contrast(1.04);
+}
+/* Degradê da esquerda — sobre a imagem única, funciona normalmente */
+.hero-bg::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     to right,
     rgba(20,12,8,0.96) 0%,
-    rgba(28,20,16,0.88) 25%,
-    rgba(28,20,16,0.60) 48%,
-    rgba(28,20,16,0.15) 65%,
-    transparent 82%
+    rgba(28,20,16,0.88) 22%,
+    rgba(28,20,16,0.62) 42%,
+    rgba(28,20,16,0.18) 60%,
+    transparent 78%
   );
-  z-index: 1; pointer-events: none;
+  z-index: 1;
 }
 /* Degradê inferior */
-.hero::after {
+.hero-bg::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(20,12,8,0.55) 0%, transparent 40%);
-  z-index: 1; pointer-events: none;
+  z-index: 1;
 }
-/* Expert: height 100% fixa, width automática — nunca corta cabeça nem mãos */
-.hero-expert-wrap {
-  position: absolute;
-  right: 0; top: 0;
-  height: 100%;
-  width: auto;
-  z-index: 2;
-  pointer-events: none;
-}
-.hero-expert {
-  position: relative;
-  height: 100%;
-  width: auto;
-  display: block;
-  filter: brightness(0.86) contrast(1.05);
+/* Brilho dourado sutil */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 8% 60%, rgba(212,168,67,0.09), transparent 70%);
+  z-index: 2; pointer-events: none;
 }
 /* Conteúdo sobre tudo */
 .hero-content {
@@ -132,25 +133,25 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     flex-direction: column; align-items: stretch;
     background: #140906;
   }
-  /* Expert wrapper no topo */
-  .hero-expert-wrap {
+  /* Foto da expert no topo, centralizada */
+  .hero-bg {
     position: relative; width: 100%; height: 370px;
-    overflow: hidden; flex-shrink: 0; background: #140906;
+    overflow: hidden; flex-shrink: 0;
   }
-  .hero-expert {
+  .hero-bg img {
+    width: auto; height: 100%;
+    object-fit: unset;
     position: absolute;
-    height: 100%; width: auto;
     left: 50%; top: 0;
     transform: translateX(-50%);
-    filter: brightness(0.88) contrast(1.05);
+    filter: brightness(0.88) contrast(1.04);
   }
-  .hero-expert-wrap::after {
-    content: '';
-    position: absolute; inset: 0;
+  .hero-bg::before {
     background: linear-gradient(to bottom, transparent 55%, rgba(20,12,8,0.95) 100%);
-    z-index: 1;
+    z-index: 2;
   }
-  .hero::before, .hero::after { display: none; }
+  .hero-bg::after { display: none; }
+  .hero::before { display: none; }
   .hero-content {
     width: 100%; max-width: 100%;
     padding: 28px 24px 48px;
@@ -551,10 +552,9 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- EXPERT: desktop = absolute right height:100%, mobile = dentro do wrap -->
-  <div class="hero-expert-wrap">
-    <img class="hero-expert" src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
+  <!-- FOTO ÚNICA: fundo espelhado + expert, com degradês CSS por cima -->
+  <div class="hero-bg">
+    <img src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
   </div>
 
   <!-- CONTEÚDO -->
