@@ -52,30 +52,33 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   color: var(--white);
   background: url('michele-foto.webp') center top / cover no-repeat;
 }
-/* Degradê leve reforçando o lado esquerdo para legibilidade */
+/* Degradê mais forte à esquerda para melhor contraste dos textos */
 .hero::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     to right,
-    rgba(15,7,4,0.55) 0%,
-    rgba(15,7,4,0.30) 25%,
-    transparent 55%
+    rgba(15,7,4,0.92) 0%,
+    rgba(15,7,4,0.78) 20%,
+    rgba(15,7,4,0.52) 38%,
+    rgba(15,7,4,0.18) 55%,
+    transparent 72%
   );
   z-index: 1; pointer-events: none;
 }
-/* Degradê inferior */
+/* Degradê inferior mais suave */
 .hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(15,7,4,0.50) 0%, transparent 35%);
+  background: linear-gradient(to top, rgba(15,7,4,0.55) 0%, transparent 38%);
   z-index: 1; pointer-events: none;
 }
-/* Conteúdo */
+/* Conteúdo — largura maior para controlar quebra de linha */
 .hero-content {
   position: relative; z-index: 2;
-  max-width: 500px;
-  padding: 0 40px 0 6%;
+  width: 46%;
+  max-width: 560px;
+  padding: 0 0 0 6%;
 }
 .hero-tag {
   display: inline-block; background: var(--gold); color: var(--dark);
@@ -89,20 +92,22 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   margin-bottom: 20px;
   animation: fadeDown 0.7s 0.08s ease both;
 }
+/* h1: font-size calibrado para 3 linhas na largura de 46% da tela */
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(30px, 3vw, 48px);
+  font-size: clamp(30px, 3vw, 46px);
   font-weight: 700; line-height: 1.12;
   margin: 0 0 18px;
   animation: fadeDown 0.7s 0.15s ease both;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
+/* sub: largura limitada para forçar 2 linhas */
 .hero-sub {
-  font-size: clamp(14px, 1.3vw, 17px);
-  color: rgba(255,255,255,0.80);
+  font-size: clamp(14px, 1.25vw, 16.5px);
+  color: rgba(255,255,255,0.82);
   margin: 0 0 30px;
   font-weight: 300; line-height: 1.7;
-  max-width: 420px;
+  max-width: 380px;
   animation: fadeDown 0.7s 0.3s ease both;
 }
 .hero .btn-wrap { animation: fadeDown 0.7s 0.45s ease both; display: inline-block; }
@@ -546,7 +551,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
     <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
     <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
-    <p class="hero-sub">3 encontros intensivos ao vivo com a <span style="color:#fff;font-weight:300;">instrutora</span> <em style="font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:400;font-size:1.12em;">Michele Alcântara</em>, mais de 7 anos formando Nail Designers de alto padrão</p>
+    <p class="hero-sub">3 encontros intensivos ao vivo com a <span style="color:#fff;font-weight:300;">instrutora</span> <em style="font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:400;font-size:1.12em;">Michele Alcântara</em>, mais de 7 anos formando Nail Designers de alto padrão.</p>
     <div class="btn-wrap">
       <a href="#inscricao" class="btn-cta">
         <div class="btn-inner-wrap">
