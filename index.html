@@ -34,7 +34,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 680px;
+  height: 82vh;
+  max-height: 700px;
+  min-height: 520px;
   display: flex; align-items: center;
   color: var(--white);
 }
@@ -46,7 +48,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: 65% top;
   display: block;
   filter: brightness(0.88) contrast(1.05);
 }
@@ -56,10 +58,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   position: absolute; inset: 0;
   background: linear-gradient(
     to right,
-    rgba(20,12,8,0.92) 0%,
-    rgba(28,20,16,0.82) 30%,
-    rgba(28,20,16,0.55) 55%,
-    rgba(28,20,16,0.10) 75%,
+    rgba(20,12,8,0.94) 0%,
+    rgba(28,20,16,0.85) 28%,
+    rgba(28,20,16,0.50) 50%,
+    rgba(28,20,16,0.08) 72%,
     transparent 100%
   );
   z-index: 1;
@@ -70,9 +72,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   position: absolute; inset: 0;
   background: linear-gradient(
     to top,
-    rgba(20,12,8,0.70) 0%,
-    rgba(20,12,8,0.20) 25%,
-    transparent 55%
+    rgba(20,12,8,0.65) 0%,
+    rgba(20,12,8,0.15) 22%,
+    transparent 50%
   );
   z-index: 1;
 }
@@ -86,8 +88,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 /* Conteúdo sobre a foto */
 .hero-content {
   position: relative; z-index: 3;
-  max-width: 580px;
-  padding: 90px 48px 80px 6%;
+  max-width: 44%;
+  padding: 0 40px 0 6%;
 }
 .hero-tag {
   display: inline-block; background: var(--gold); color: var(--dark);
@@ -98,42 +100,68 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .hero-date {
   font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 300;
   letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   animation: fadeDown 0.7s 0.08s ease both;
 }
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4.2vw, 62px);
-  font-weight: 700; line-height: 1.1;
-  margin: 0 0 22px;
+  font-size: clamp(28px, 2.9vw, 46px);
+  font-weight: 700; line-height: 1.12;
+  margin: 0 0 18px;
+  max-width: 340px;
   animation: fadeDown 0.7s 0.15s ease both;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
 .hero-sub {
-  font-size: clamp(15px, 1.5vw, 18px);
+  font-size: clamp(13px, 1.1vw, 15px);
   color: rgba(255,255,255,0.78);
-  margin: 0 0 36px;
-  font-weight: 300; line-height: 1.7;
+  margin: 0 0 30px;
+  font-weight: 300; line-height: 1.65;
+  max-width: 320px;
   animation: fadeDown 0.7s 0.3s ease both;
 }
 .hero .btn-wrap { animation: fadeDown 0.7s 0.45s ease both; display: inline-block; }
 
+/* ── MOBILE ── */
 @media (max-width: 768px) {
-  .hero { min-height: 520px; align-items: flex-end; }
-  .hero-bg::before {
-    background: linear-gradient(
-      to top,
-      rgba(20,12,8,0.96) 0%,
-      rgba(20,12,8,0.80) 45%,
-      rgba(20,12,8,0.30) 75%,
-      transparent 100%
-    );
+  .hero {
+    height: auto;
+    max-height: none;
+    min-height: unset;
+    flex-direction: column;
+    align-items: stretch;
   }
+  /* Foto da expert no topo, centralizada no rosto */
+  .hero-bg {
+    position: relative;
+    height: 280px;
+    flex-shrink: 0;
+  }
+  .hero-bg img {
+    object-position: center 15%;
+  }
+  /* remove gradiente lateral, coloca escurecimento de baixo para cima na foto */
+  .hero-bg::before {
+    background: linear-gradient(to bottom, transparent 50%, rgba(20,12,8,0.9) 100%);
+  }
+  .hero-bg::after { display: none; }
+
+  /* Área do texto: fundo duplica a imagem da expert alinhada à esquerda */
   .hero-content {
-    padding: 32px 24px 44px;
+    max-width: 100%;
+    padding: 28px 24px 40px;
+    position: relative;
+    background:
+      linear-gradient(to right, rgba(20,12,8,0.93) 0%, rgba(20,12,8,0.93) 100%),
+      url('michele-foto.webp') left center / auto 100% no-repeat;
+    background-blend-mode: multiply, normal;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 7vw, 36px);
     max-width: 100%;
   }
-  .hero h1 { font-size: clamp(28px, 7.5vw, 40px); }
+  .hero-sub { max-width: 100%; font-size: 14px; }
+  .hero::before { display: none; }
 }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -521,7 +549,7 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- HERO -->
 <section class="hero">
-  <!-- FOTO DE FUNDO -->
+  <!-- FOTO DE FUNDO (absolute no desktop, relative no mobile) -->
   <div class="hero-bg">
     <img src="michele-foto.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
   </div>
@@ -530,7 +558,7 @@ footer a { color: var(--gold); text-decoration: none; }
   <div class="hero-content">
     <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
     <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
-    <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
+    <h1>Transforme suas<br>unhas em negócio,<br><em>cobre o que você<br>realmente vale</em></h1>
     <p class="hero-sub">3 encontros intensivos ao vivo com a <span style="color:#fff;font-weight:300;">instrutora</span> <em style="font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:400;font-size:1.12em;">Michele Alcântara</em>, mais de 7 anos formando Nail Designers de alto padrão</p>
     <div class="btn-wrap">
       <a href="#inscricao" class="btn-cta">
