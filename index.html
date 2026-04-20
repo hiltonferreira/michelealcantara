@@ -340,8 +340,31 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 /* ─── CERTIFICADO ─── */
 .certificado { background: var(--cream); position: relative; overflow: hidden; }
 
-/* Logo marca dourada ao fundo */
-.cert-logo-bg {
+/* Logo na hero — inline acima do tag */
+.hero-logo {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45));
+  animation: fadeDown 0.7s ease both;
+}
+@media (max-width: 768px) {
+  .hero-logo { width: 64px; height: 64px; margin: 0 auto 12px; }
+}
+
+/* Logo no certificado */
+.cert-logo-stamp {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 1px 3px rgba(139,94,60,0.2));
+}
   position: absolute;
   left: -80px;
   top: 50%;
@@ -654,6 +677,7 @@ footer a { color: var(--gold); text-decoration: none; }
 
   <!-- CONTEÚDO: textos e botão -->
   <div class="hero-content">
+    <img src="michele-logo.png" class="hero-logo" alt="Michele Alcântara Studio Nail">
     <div class="hero-tag">Imersão · 3 Encontros ao Vivo</div>
     <div class="hero-date">Dias 20, 21 e 22 de Maio · às 20h</div>
     <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
@@ -824,6 +848,8 @@ footer a { color: var(--gold); text-decoration: none; }
       </div>
       <div class="cert-visual rv-right">
         <div class="cert-outer-border"></div>
+        <!-- Logo no canto superior direito do certificado -->
+        <img src="michele-logo.png" class="cert-logo-stamp" alt="Michele Alcântara Studio Nail">
         <div>
           <span class="cert-ornament">✦ ✦ ✦</span>
           <div class="cert-big-title">C<span>ertificado</span></div>
