@@ -121,19 +121,24 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     height: auto; max-height: none; min-height: unset;
     flex-direction: column; align-items: stretch;
     background: #140906;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
   }
-  /* Foto mobile: preenche borda a borda, topo até o ticker, corpo inteiro */
+  /* Foto mobile: preenche borda a borda sem nenhuma folga */
   .hero-bg {
     display: block;
     visibility: visible;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     height: 88vw;
     min-height: 300px;
     max-height: 480px;
     overflow: hidden;
     flex-shrink: 0;
-    margin: 0;
   }
   .hero-bg img {
     position: absolute;
