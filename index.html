@@ -285,12 +285,40 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .chk { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; stroke: var(--rose); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ─── AULAS ─── */
-.aulas { background: var(--dark); color: var(--white); padding: 0; }
-.aulas-inner { padding: 80px 20px; }
+.aulas { background: var(--dark); color: var(--white); padding: 0; position: relative; overflow: hidden; }
+
+/* Foto de fundo com blur e transparência */
+.aulas-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('michele-programacao.webp');
+  background-size: cover;
+  background-position: center 30%;
+  filter: blur(3px) brightness(0.35) saturate(0.7);
+  transform: scale(1.04);
+}
+/* Fade da esquerda para escurecer onde ficam os cards */
+.aulas-bg-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(20,10,6,0.92) 0%,
+    rgba(20,10,6,0.75) 30%,
+    rgba(20,10,6,0.45) 60%,
+    rgba(20,10,6,0.20) 100%
+  );
+}
+/* Degradê superior e inferior para fundir com as seções vizinhas */
+.aulas-bg-vignette {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, var(--dark) 0%, transparent 8%, transparent 92%, var(--dark) 100%);
+}
+
+.aulas-inner { padding: 80px 20px; position: relative; z-index: 2; }
 .aulas h2 { color: var(--white); }
 .aulas h2 em { color: var(--gold); }
 .aula-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
-.aula-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,168,67,0.2); border-radius: 12px; padding: 24px 24px 28px; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+.aula-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,168,67,0.2); border-radius: 12px; padding: 24px 24px 28px; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; backdrop-filter: blur(8px); }
 .aula-card:hover { border-color: rgba(212,168,67,0.55); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
 .aula-num-wrap { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
 .aula-day-block { display: flex; flex-direction: column; }
@@ -307,6 +335,7 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .aula-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--rose); font-size: 12px; top: 7px; }
 .aula-card.destaque { border-color: var(--gold); background: rgba(212,168,67,0.06); }
 .badge-oferta { background: var(--gold); color: var(--dark); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; display: block; margin-bottom: 10px; font-family: 'Sora', sans-serif; text-align: center; width: 100%; }
+.aulas .ticker-block { position: relative; z-index: 2; }
 
 /* ─── CERTIFICADO ─── */
 .certificado { background: var(--cream); }
@@ -668,6 +697,9 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- AS AULAS -->
 <section class="aulas">
+  <div class="aulas-bg"></div>
+  <div class="aulas-bg-overlay"></div>
+  <div class="aulas-bg-vignette"></div>
   <div class="ticker-block">
     <div class="ticker-row dark-row"><div class="ticker-track" id="tk-top2"></div></div>
     <div class="ticker-row gold-row"><div class="ticker-track" id="tk-bot2"></div></div>
