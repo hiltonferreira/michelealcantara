@@ -122,35 +122,46 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     flex-direction: column; align-items: stretch;
     background: #140906;
   }
+  /* Foto mobile: preenche borda a borda, topo até o ticker, corpo inteiro */
   .hero-bg {
     display: block;
     visibility: visible;
-    position: relative; width: 100%; height: 370px;
-    overflow: hidden; flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    height: 88vw;
+    min-height: 300px;
+    max-height: 480px;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin: 0;
   }
   .hero-bg img {
-    width: auto; height: 100%;
     position: absolute;
-    left: 50%; top: 0;
-    transform: translateX(-50%);
-    filter: brightness(0.88) contrast(1.04);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.90) contrast(1.04);
   }
+  /* Fade inferior suave para fundir com o bloco de texto */
   .hero-bg::before {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 55%, rgba(20,12,8,0.95) 100%);
+    background: linear-gradient(to bottom, transparent 50%, rgba(20,12,8,0.97) 100%);
     z-index: 2;
   }
   .hero::before, .hero::after { display: none; }
   .hero-content {
     width: 100%; max-width: 100%;
-    padding: 28px 24px 48px;
+    padding: 24px 24px 48px;
     text-align: center;
     display: flex; flex-direction: column; align-items: center;
     background: #140906;
     position: relative; z-index: 3;
     box-sizing: border-box;
   }
+  .hero-logo { width: 110px; height: 110px; margin: 0 auto 14px; }
   .hero h1 { font-size: clamp(28px, 7vw, 38px); max-width: 100%; text-align: center; }
   .hero-sub { font-size: 15px; max-width: 100%; text-align: center; }
   .hero-tag { align-self: center; }
@@ -657,7 +668,7 @@ footer a { color: var(--gold); text-decoration: none; }
 <section class="hero">
   <!-- FOTO MOBILE: só aparece em telas pequenas via CSS -->
   <div class="hero-bg">
-    <img src="michele-hero.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
+    <img src="michele-hero-mobile.webp" alt="Michele Alcântara — Nail Designer e Instrutora">
   </div>
 
   <!-- CONTEÚDO: textos e botão -->
