@@ -338,7 +338,22 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .aulas .ticker-block { position: relative; z-index: 2; }
 
 /* ─── CERTIFICADO ─── */
-.certificado { background: var(--cream); }
+.certificado { background: var(--cream); position: relative; overflow: hidden; }
+
+/* Logo marca dourada ao fundo */
+.cert-logo-bg {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 500px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.cert-logo-bg svg { width: 100%; height: 100%; }
+.certificado .container { position: relative; z-index: 1; }
 .certificado .section-label { color: var(--rose); }
 .certificado h2 { color: var(--dark); }
 .certificado h2 em { color: var(--rose-dark); }
@@ -779,6 +794,44 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <!-- CERTIFICADO -->
 <section class="certificado">
+  <!-- Logo marca dourada sutil ao fundo -->
+  <div class="cert-logo-bg" aria-hidden="true">
+    <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <defs>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E8D5A0"/>
+          <stop offset="35%" stop-color="#D4A843"/>
+          <stop offset="65%" stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#8B6914"/>
+        </linearGradient>
+      </defs>
+      <!-- Círculo externo -->
+      <circle cx="160" cy="155" r="130" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.9"/>
+      <!-- Círculo interno -->
+      <circle cx="160" cy="155" r="118" stroke="url(#goldGrad)" stroke-width="0.5" fill="none" opacity="0.5"/>
+
+      <!-- Letra M estilizada (lado esquerdo) -->
+      <path d="M85 210 L85 95 L130 160 L160 110 L160 95" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Letra M lado direito / N estilizado -->
+      <path d="M160 95 L160 210" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <path d="M160 95 L210 210 L235 210 L235 95" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+      <!-- Linha decorativa horizontal superior -->
+      <line x1="90" y1="88" x2="230" y2="88" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6"/>
+      <!-- Linha decorativa horizontal inferior do monograma -->
+      <line x1="90" y1="218" x2="230" y2="218" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6"/>
+
+      <!-- Nome MICHELE ALCÂNTARA -->
+      <text x="160" y="250" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" font-weight="400" letter-spacing="3" fill="url(#goldGrad)">MICHELE ALCÂNTARA</text>
+
+      <!-- Linha decorativa entre nome e subtítulo -->
+      <line x1="110" y1="262" x2="210" y2="262" stroke="url(#goldGrad)" stroke-width="0.6" opacity="0.7"/>
+
+      <!-- STUDIO NAIL -->
+      <text x="160" y="280" text-anchor="middle" font-family="'Sora', Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="5" fill="url(#goldGrad)" opacity="0.85">STUDIO NAIL</text>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="section-label rv">Reconhecimento oficial</div>
     <h2 class="rv d1">Você sai da imersão com um<br><em>certificado de participação</em></h2>
