@@ -313,8 +313,9 @@ h2 em { color: var(--rose-dark); font-style: italic; }
   .aula-divider { margin-bottom: 10px; }
   .aula-learns { font-size: 10px; margin-bottom: 6px; }
   .aula-card ul li { font-size: 13px; padding: 5px 0 5px 17px; }
-  /* Manter apenas 2 bullets por card no mobile */
-  .aula-card ul li:nth-child(n+3) { display: none; }
+  /* Bullets mobile — controlados por classe */
+  .aula-card ul li { display: none; }
+  .aula-card ul li.m-show { display: flex; }
   .badge-oferta { font-size: 9px; padding: 3px 8px; margin-bottom: 8px; }
 }
 
@@ -682,11 +683,11 @@ footer a { color: var(--gold); text-decoration: none; }
           <hr class="aula-divider">
           <div class="aula-learns">Você vai aprender:</div>
           <ul>
+            <li class="m-show">Esmaltação em gel com acabamento impecável</li>
+            <li class="m-show">Protocolo de relaxamento e Método Premium de finalização</li>
             <li>Remoção segura de calosidades com precisão e cuidado</li>
             <li>Tratamento de fissuras e regiões ressecadas</li>
             <li>Cutilagem técnica e precisa, do jeito profissional</li>
-            <li>Esmaltação em gel com acabamento impecável</li>
-            <li>Protocolo de relaxamento e Método Premium de finalização</li>
           </ul>
         </div>
 
@@ -703,10 +704,10 @@ footer a { color: var(--gold); text-decoration: none; }
           <hr class="aula-divider">
           <div class="aula-learns">Você vai aprender:</div>
           <ul>
+            <li class="m-show">Domínio do gel com controle absoluto de espessura</li>
+            <li class="m-show">Acabamento refinado e resultado profissional de alto nível</li>
             <li>Técnica Clean Beauty descomplicando o molde F1</li>
-            <li>Domínio do gel com controle absoluto de espessura</li>
             <li>Construção com mínimo de lixamento, mais leveza e precisão</li>
-            <li>Acabamento refinado e resultado profissional de alto nível</li>
           </ul>
         </div>
 
@@ -724,8 +725,8 @@ footer a { color: var(--gold); text-decoration: none; }
           <hr class="aula-divider">
           <div class="aula-learns">Você vai aprender:</div>
           <ul>
-            <li>Planilha de precificação, calcule o valor real do seu serviço</li>
-            <li>Como montar combos e pacotes que lotam a agenda</li>
+            <li class="m-show">Planilha de precificação, calcule o valor real do seu serviço</li>
+            <li class="m-show">Como montar combos e pacotes que lotam a agenda</li>
             <li>Scripts prontos para atender clientes no WhatsApp e Instagram</li>
             <li>Oferta especial ao vivo para quem quer ir mais fundo</li>
           </ul>
