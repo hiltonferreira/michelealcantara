@@ -300,6 +300,24 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .aula-card.destaque { border-color: rgba(212,168,67,0.28); background: rgba(18,10,4,0.90); }
 .badge-oferta { background: rgba(212,168,67,0.18); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; display: block; margin-bottom: 10px; font-family: 'Sora', sans-serif; text-align: center; width: 100%; }
 
+@media (max-width: 768px) {
+  .aulas-inner { padding: 44px 16px 52px; }
+  .aula-cards { gap: 14px; margin-top: 20px; }
+  .aula-card { padding: 18px 18px 20px; }
+  .aula-num { display: none; }
+  .aula-day { font-size: 12px; letter-spacing: 1px; }
+  .aula-tz { font-size: 10px; }
+  .aula-num-wrap { margin-bottom: 6px; }
+  .aula-card h3 { font-size: 17px; margin-top: 4px; margin-bottom: 4px; }
+  .aula-subtitle { font-size: 12.5px; margin-bottom: 12px; }
+  .aula-divider { margin-bottom: 10px; }
+  .aula-learns { font-size: 10px; margin-bottom: 6px; }
+  .aula-card ul li { font-size: 13px; padding: 5px 0 5px 17px; }
+  /* Manter apenas 2 bullets por card no mobile */
+  .aula-card ul li:nth-child(n+3) { display: none; }
+  .badge-oferta { font-size: 9px; padding: 3px 8px; margin-bottom: 8px; }
+}
+
 /* ─── CERTIFICADO ─── */
 .certificado { background: var(--cream); position: relative; overflow: hidden; padding: 36px 20px 56px; }
 .certificado .container { position: relative; z-index: 1; max-width: 1140px; }
