@@ -274,8 +274,22 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 
 /* ─── CERTIFICADO ─── */
 .certificado { background: var(--cream); position: relative; overflow: hidden; }
+.certificado .container { position: relative; z-index: 1; }
+.certificado .section-label { color: var(--rose); }
+.certificado h2 { color: var(--dark); }
+.certificado h2 em { color: var(--rose-dark); }
+.cert-wrap { display: grid; grid-template-columns: 1fr 1.8fr; gap: 48px; align-items: center; margin-top: 32px; }
+@media (max-width: 680px) { .cert-wrap { grid-template-columns: 1fr; } }
+.cert-text p { font-size: 15px; color: var(--mid); margin-bottom: 20px; line-height: 1.75; }
+.cert-feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.cert-feature-icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(212,168,67,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cert-feature-icon svg { width: 14px; height: 14px; stroke: var(--rose-dark); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cert-feature-text strong { display: block; font-size: 13.5px; color: var(--dark); font-weight: 500; margin-bottom: 2px; }
+.cert-feature-text span { font-size: 12.5px; color: var(--muted); }
+.cert-img-wrap { position: relative; }
+.cert-img-wrap img { width: 100%; border-radius: 4px; box-shadow: 0 6px 32px rgba(139,94,60,0.14), 0 1px 4px rgba(139,94,60,0.08); display: block; }
 
-/* Logo na hero — inline acima do tag */
+/* Logo na hero */
 .hero-logo {
   display: block;
   width: 110px;
@@ -288,48 +302,6 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 @media (max-width: 768px) {
   .hero-logo { width: 100px; height: 100px; margin: 0 auto 14px; }
 }
-
-/* Logo no certificado */
-.cert-logo-stamp {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  z-index: 2;
-  filter: drop-shadow(0 1px 2px rgba(139,94,60,0.15)); opacity: 0.85;
-}
-.certificado .container { position: relative; z-index: 1; }
-.certificado .section-label { color: var(--rose); }
-.certificado h2 { color: var(--dark); }
-.certificado h2 em { color: var(--rose-dark); }
-.cert-wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; align-items: center; margin-top: 40px; }
-@media (max-width: 680px) { .cert-wrap { grid-template-columns: 1fr; } }
-.cert-text p { font-size: 16px; color: var(--mid); margin-bottom: 16px; line-height: 1.8; }
-.cert-feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-.cert-feature-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(212,168,67,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.cert-feature-icon svg { width: 16px; height: 16px; stroke: var(--rose-dark); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.cert-feature-text strong { display: block; font-size: 14px; color: var(--dark); font-weight: 500; margin-bottom: 2px; }
-.cert-feature-text span { font-size: 13px; color: var(--muted); }
-.cert-visual { background: #FDFAF4; border: 1px solid rgba(201,168,76,0.3); padding: 30px 28px 24px; text-align: center; position: relative; box-shadow: 0 4px 24px rgba(139,94,60,0.10); aspect-ratio: 4 / 2.85; display: flex; flex-direction: column; justify-content: space-between; }
-.cert-outer-border { position: absolute; inset: 5px; border: 1px solid rgba(201,168,76,0.18); pointer-events: none; }
-.cert-ornament { font-size: 14px; color: var(--gold); opacity: 0.3; letter-spacing: 6px; display: block; margin-bottom: 4px; }
-.cert-big-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: 5px; color: #5C3A1A; text-transform: uppercase; }
-.cert-big-title span { color: var(--gold); }
-.cert-sub-line { font-size: 11px; color: #6B5020; letter-spacing: 1px; margin: 3px 0 6px; }
-.cert-name-script { font-family: 'Great Vibes', cursive; font-size: 30px; color: #1a1a1a; line-height: 1.1; border-bottom: 1px solid rgba(139,94,60,0.22); padding-bottom: 5px; display: inline-block; min-width: 200px; margin-bottom: 6px; }
-.cert-body { font-size: 10.5px; color: #4a3820; line-height: 1.6; text-align: left; }
-.cert-body strong { font-weight: 700; }
-.cert-hr { border: none; border-top: 1px solid rgba(201,168,76,0.35); margin: 8px 14px; }
-.cert-footer-row { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 8px; }
-.cert-date-col { text-align: left; }
-.cert-date-val { font-size: 11px; color: #4a3820; font-weight: 500; }
-.cert-date-lbl { font-size: 9px; color: #8B7040; border-top: 1px solid rgba(139,94,60,0.25); padding-top: 3px; margin-top: 3px; }
-.cert-sign-col { text-align: center; }
-.cert-sign-script { font-family: 'Great Vibes', cursive; font-size: 20px; color: #1a1a1a; line-height: 1; }
-.cert-sign-lbl { font-size: 9px; color: #8B7040; border-top: 1px solid rgba(139,94,60,0.25); padding-top: 3px; margin-top: 2px; }
-.cert-watermark { font-size: 8.5px; color: rgba(139,94,60,0.3); letter-spacing: 1px; }
 
 /* ─── ABOUT ─── */
 .about { background: var(--cream); }
@@ -677,34 +649,8 @@ footer a { color: var(--gold); text-decoration: none; }
           <div class="cert-feature-text"><strong>Use no seu portfólio e no Instagram</strong><span>Fortaleça sua imagem profissional com mais consistência</span></div>
         </div>
       </div>
-      <div class="cert-visual rv-right">
-        <div class="cert-outer-border"></div>
-        <!-- Logo no canto superior direito do certificado -->
-        <img src="michele-logo.png" class="cert-logo-stamp" alt="Michele Alcântara Studio Nail">
-        <div>
-          <span class="cert-ornament">✦ ✦ ✦</span>
-          <div class="cert-big-title">C<span>ertificado</span></div>
-          <div class="cert-sub-line">Certifico que</div>
-          <div class="cert-name-script">Seu Nome Aqui</div>
-        </div>
-        <div class="cert-body">
-          Concluiu com êxito a <strong>Imersão Nail Designer de Sucesso</strong>, tornando-se apto(a) a atuar com excelência nas técnicas de <strong>Spa do Pé Premium, Molde F1 Premium e Clean Beauty</strong>, além de gestão profissional de agenda e precificação.<br>
-          Evento ministrado pela Nail Designer e Instrutora <strong>Michele Alcântara</strong>, com carga horária total de <strong>9 horas</strong>.
-        </div>
-        <div>
-          <div class="cert-hr"></div>
-          <div class="cert-footer-row">
-            <div class="cert-date-col">
-              <div class="cert-date-val">22/05/2026</div>
-              <div class="cert-date-lbl">Data de Conclusão</div>
-            </div>
-            <div class="cert-sign-col">
-              <div class="cert-sign-script">Michele Alcântara</div>
-              <div class="cert-sign-lbl">Instrutora Nail Designer</div>
-            </div>
-          </div>
-          <div class="cert-watermark">instagram.com/michelealcantaranail</div>
-        </div>
+      <div class="cert-img-wrap rv-right">
+        <img src="michele-certificado.webp" alt="Certificado de participação — Imersão Nail Designer de Sucesso por Michele Alcântara">
       </div>
     </div>
   </div>
