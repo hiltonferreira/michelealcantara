@@ -239,6 +239,13 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .check-list li { display: flex; align-items: flex-start; gap: 14px; padding: 18px 22px; background: var(--cream); border-radius: 6px; border-left: 2px solid rgba(200,149,108,0.5); font-size: 15px; color: var(--mid); line-height: 1.6; }
 .chk { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; stroke: var(--rose); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
+@media (max-width: 768px) {
+  .forwho { padding-top: 44px; padding-bottom: 28px; }
+  .check-list { grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
+  .check-list li { padding: 13px 16px; gap: 12px; font-size: 14px; line-height: 1.55; }
+  .chk { width: 16px; height: 16px; margin-top: 1px; }
+}
+
 /* ─── AULAS ─── */
 .aulas { background: var(--dark); color: var(--white); padding: 0; position: relative; overflow: hidden; }
 
