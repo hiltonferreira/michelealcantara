@@ -505,6 +505,32 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .depo-author { font-size: 14px; font-weight: 600; color: var(--dark); line-height: 1.2; }
 .depo-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
+@media (max-width: 768px) {
+  .depoimentos { padding-left: 0; padding-right: 0; }
+  .depoimentos .container { padding-left: 20px; padding-right: 20px; }
+  .depo-viewport { padding: 16px 0 32px; }
+  .depo-track { gap: 14px; padding: 0 20px; }
+  .depo-card {
+    min-width: calc(88vw);
+    max-width: calc(88vw);
+    padding: 22px 20px 18px;
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  .depo-card.center {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+  }
+  /* Próximo card aparece como prévia sutil */
+  .depo-card:not(.center) {
+    opacity: 0.55;
+  }
+  .depo-card p { font-size: 14px; line-height: 1.72; margin-bottom: 14px; }
+  .depo-author { font-size: 13.5px; }
+  .depo-role { font-size: 12px; }
+}
+
 /* ─── CTA SECTION ─── */
 .cta-section { background: linear-gradient(160deg, #140D09 0%, #2A1A0F 60%, #1C1410 100%); color: var(--white); text-align: center; padding: 88px 20px 80px; }
 .cta-section h2 { color: var(--white); }
