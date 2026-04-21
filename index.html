@@ -19,7 +19,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   /* Restore cream after hero */
   .promise, .forwho, .aulas, .certificado, .about, .depoimentos, .cta-section, .faq, footer { background-color: revert; }
   .forwho { background: var(--white) !important; }
-  .promise { background: var(--cream) !important; }
+  .promise { background: var(--white) !important; }
   .certificado { background: var(--cream) !important; }
   .about { background: var(--white) !important; }
   .depoimentos { background: var(--rose-light) !important; }
@@ -203,19 +203,19 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .d4{transition-delay:.32s}.d5{transition-delay:.41s}.d6{transition-delay:.50s}
 
 /* ─── PROMISE — reforço compacto 4 colunas ─── */
-.promise { background: var(--cream); border-top: 1px solid rgba(200,149,108,0.12); border-bottom: 1px solid rgba(200,149,108,0.12); padding: 48px 20px; }
+.promise { background: var(--white); border-top: 1px solid rgba(200,149,108,0.18); padding: 40px 20px 48px; }
 .promise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; max-width: 900px; margin: 0 auto; text-align: left; }
 @media (max-width: 768px) { .promise-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
 @media (max-width: 440px) { .promise-grid { grid-template-columns: 1fr; } }
 .promise-item { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
 .p-icon { display: none; }
 .p-icon svg { width: 24px; height: 24px; stroke: var(--rose-dark); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.promise-item strong { font-size: 14px; font-weight: 600; color: var(--dark); letter-spacing: 0.2px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+.promise-item strong { font-size: 14.5px; font-weight: 600; color: var(--dark); letter-spacing: 0.2px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
 .promise-item strong::before { content: ""; display: inline-block; width: 18px; height: 1.5px; background: var(--gold); flex-shrink: 0; margin-top: 8px; }
-.promise-item span { font-size: 12.5px; color: var(--mid); line-height: 1.6; opacity: 0.75; padding-left: 28px; }
+.promise-item span { font-size: 13px; color: var(--mid); line-height: 1.6; opacity: 0.85; padding-left: 28px; }
 
 /* ─── FOR WHOM ─── */
-.forwho { background: var(--white); padding-top: 64px; padding-bottom: 56px; }
+.forwho { background: var(--white); padding-top: 64px; padding-bottom: 44px; }
 .check-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-top: 32px; }
 .check-list li { display: flex; align-items: flex-start; gap: 14px; padding: 18px 22px; background: var(--cream); border-radius: 6px; border-left: 2px solid rgba(200,149,108,0.5); font-size: 15px; color: var(--mid); line-height: 1.6; }
 .chk { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; stroke: var(--rose); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
