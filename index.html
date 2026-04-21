@@ -390,8 +390,8 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 }
 .about-photo-fade-bottom { display: none; }
 @media (max-width: 780px) {
-  .about-photo { min-height: 280px; }
-  .about-photo-fade { background: linear-gradient(to bottom, transparent 60%, var(--white) 100%); }
+  .about-photo { min-height: 260px; }
+  .about-photo-fade { display: none; }
 }
 
 /* Conteúdo à direita */
@@ -429,6 +429,29 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .stat-card { display: none; }
 .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400; line-height: 1; }
 .stat-desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+@media (max-width: 780px) {
+  .about { padding-bottom: 48px; }
+  .about .container { padding-left: 16px; padding-right: 16px; }
+  .about-photo {
+    min-height: 300px;
+    max-height: 340px;
+  }
+  .about-photo img {
+    object-position: 55% 18%;
+  }
+  .about-content {
+    padding: 24px 4px 28px;
+    gap: 16px;
+  }
+  .about-content h2 { font-size: clamp(20px, 5.5vw, 28px); }
+  .about p { font-size: 14px; max-width: 100%; line-height: 1.7; }
+  .about-nums { gap: 20px; padding: 12px 0; }
+  .about-num-val { font-size: 24px; }
+  .about-num-desc { font-size: 13px; }
+  .credentials { gap: 6px; }
+  .cred-item { font-size: 13px; }
+}
 
 /* ─── DEPOIMENTOS — premium ─── */
 .depoimentos { background: var(--rose-light); overflow: hidden; }
