@@ -170,7 +170,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     margin-bottom: 24px;
   }
   .hero .btn-wrap { margin-top: 0; }
-  .hero .btn-cta { font-size: 14px; padding: 15px 28px; min-width: unset; width: 100%; max-width: 320px; }
+  .hero .btn-cta { font-size: 14px; padding: 14px 32px; min-width: unset; width: 100%; max-width: 320px; }
+  .btn-txt-desktop { display: none; }
+  .btn-txt-mobile { display: inline; }
 }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -197,6 +199,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 }
 .btn-cta::before { display: none; }
 .btn-cta::after { display: none; }
+.btn-txt-mobile { display: none; }
+.btn-txt-desktop { display: inline; }
 
 /* ─── SECTIONS ─── */
 section { padding: 80px 20px; }
@@ -571,7 +575,10 @@ footer a { color: var(--gold); text-decoration: none; }
     <h1>Transforme suas unhas em negócio, <em>cobre o que você realmente vale</em></h1>
     <p class="hero-sub">3 encontros ao vivo com <em style="font-family:'Playfair Display',serif;font-style:italic;color:#fff;font-weight:400;">Michele Alcântara</em> para dominar técnicas de alto padrão, aprender a precificar seu serviço e atrair clientes que valorizam o seu trabalho.</p>
     <div class="btn-wrap">
-      <a href="LINK_CHECKOUT_AQUI" class="btn-cta">Garantir minha vaga por R$ 27</a>
+      <a href="LINK_CHECKOUT_AQUI" class="btn-cta">
+        <span class="btn-txt-desktop">Garantir minha vaga por R$ 27</span>
+        <span class="btn-txt-mobile">Quero entrar por R$ 27</span>
+      </a>
     </div>
   </div>
 </section>
