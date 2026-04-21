@@ -484,6 +484,50 @@ footer a { color: var(--gold); text-decoration: none; }
 .sticky-cta.hidden-bar { opacity: 0; pointer-events: none; transform: translateY(100%); }
 .sticky-cta .btn-cta { min-width: unset; width: auto; padding: 14px 32px; font-size: 14px; }
 
+
+/* ─── CREDIBILITY STRIP ─── */
+.cred-strip {
+  background: var(--dark);
+  border-top: 1px solid rgba(212,168,67,0.15);
+  border-bottom: 1px solid rgba(212,168,67,0.15);
+  height: 44px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.cred-strip-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: credSlide 60s linear infinite;
+}
+@keyframes credSlide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.cred-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 36px;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.52);
+  flex-shrink: 0;
+}
+.cred-strip-sep {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
 </style>
 </head>
 <body>
@@ -507,6 +551,11 @@ footer a { color: var(--gold); text-decoration: none; }
     </div>
   </div>
 </section>
+
+<!-- CREDIBILITY STRIP -->
+<div class="cred-strip">
+  <div class="cred-strip-track"><span class="cred-strip-item">+10 anos de experiência<span class="cred-strip-sep"></span></span><span class="cred-strip-item">+5.000 clientes atendidas<span class="cred-strip-sep"></span></span><span class="cred-strip-item">+100 alunas formadas<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Instrutora Fada Pro Master<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Instrutora Oficial King Nails Pro<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Instrutora Podal Russo<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Parceira Oficial King Nails Pro<span class="cred-strip-sep"></span></span><span class="cred-strip-item">3 encontros ao vivo<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Certificado de participação<span class="cred-strip-sep"></span></span><span class="cred-strip-item">+10 anos de experiência<span class="cred-strip-sep"></span></span><span class="cred-strip-item">+5.000 clientes atendidas<span class="cred-strip-sep"></span></span><span class="cred-strip-item">+100 alunas formadas<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Instrutora Fada Pro Master<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Instrutora Oficial King Nails Pro<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Instrutora Podal Russo<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Parceira Oficial King Nails Pro<span class="cred-strip-sep"></span></span><span class="cred-strip-item">3 encontros ao vivo<span class="cred-strip-sep"></span></span><span class="cred-strip-item">Certificado de participação<span class="cred-strip-sep"></span></span></div>
+</div>
 
 <!-- PARA QUEM É — imediatamente abaixo do hero -->
 <section class="forwho" style="background:var(--white);">
