@@ -273,21 +273,22 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .badge-oferta { background: rgba(212,168,67,0.18); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; display: block; margin-bottom: 10px; font-family: 'Sora', sans-serif; text-align: center; width: 100%; }
 
 /* ─── CERTIFICADO ─── */
-.certificado { background: var(--cream); position: relative; overflow: hidden; padding-bottom: 60px; }
-.certificado .container { position: relative; z-index: 1; }
+.certificado { background: var(--cream); position: relative; overflow: hidden; padding: 72px 20px 68px; }
+.certificado .container { position: relative; z-index: 1; max-width: 1140px; }
 .certificado .section-label { color: var(--rose); }
-.certificado h2 { color: var(--dark); }
+.certificado h2 { color: var(--dark); max-width: 380px; margin-bottom: 12px; }
 .certificado h2 em { color: var(--rose-dark); }
-.cert-wrap { display: grid; grid-template-columns: 0.75fr 2fr; gap: 36px; align-items: start; margin-top: 28px; }
-@media (max-width: 680px) { .cert-wrap { grid-template-columns: 1fr; } }
-.cert-text p { font-size: 14px; color: var(--mid); margin-bottom: 16px; line-height: 1.7; }
-.cert-feature { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
-.cert-feature-icon { width: 30px; height: 30px; border-radius: 50%; background: rgba(212,168,67,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.cert-feature-icon svg { width: 14px; height: 14px; stroke: var(--rose-dark); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.cert-feature-text strong { display: block; font-size: 13px; color: var(--dark); font-weight: 500; margin-bottom: 1px; }
-.cert-feature-text span { font-size: 12px; color: var(--muted); }
+.cert-wrap { display: grid; grid-template-columns: 38% 62%; gap: 40px; align-items: start; margin-top: 24px; }
+@media (max-width: 720px) { .cert-wrap { grid-template-columns: 1fr; gap: 32px; } }
+.cert-text { padding-right: 8px; }
+.cert-text p { font-size: 14.5px; color: var(--mid); margin-bottom: 22px; line-height: 1.72; max-width: 340px; }
+.cert-feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 11px; }
+.cert-feature-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(212,168,67,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.cert-feature-icon svg { width: 13px; height: 13px; stroke: var(--rose-dark); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cert-feature-text strong { display: block; font-size: 13.5px; color: var(--dark); font-weight: 600; margin-bottom: 2px; }
+.cert-feature-text span { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
 .cert-img-wrap { position: relative; }
-.cert-img-wrap img { width: 100%; border-radius: 3px; box-shadow: 0 10px 48px rgba(139,94,60,0.18), 0 2px 8px rgba(139,94,60,0.10); display: block; }
+.cert-img-wrap img { width: 100%; border-radius: 3px; box-shadow: 0 8px 40px rgba(139,94,60,0.15), 0 1px 4px rgba(139,94,60,0.08); display: block; }
 
 /* Logo na hero */
 .hero-logo {
@@ -631,10 +632,10 @@ footer a { color: var(--gold); text-decoration: none; }
 <!-- CERTIFICADO -->
 <section class="certificado">
   <div class="container">
-    <div class="section-label rv">Reconhecimento oficial</div>
-    <h2 class="rv d1">Você sai da imersão com um<br><em>certificado de participação</em></h2>
     <div class="cert-wrap">
       <div class="cert-text rv-left">
+        <div class="section-label">Reconhecimento oficial</div>
+        <h2 class="rv d1">Você sai da imersão com um <em>certificado de participação</em></h2>
         <p>Ao concluir os 3 encontros da imersão, você recebe um certificado digital assinado por Michele Alcântara — um material que reforça seu desenvolvimento e contribui para a construção do seu posicionamento profissional.</p>
         <div class="cert-feature">
           <div class="cert-feature-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
