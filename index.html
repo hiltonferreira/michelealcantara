@@ -240,10 +240,12 @@ h2 em { color: var(--rose-dark); font-style: italic; }
 .chk { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; stroke: var(--rose); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
 @media (max-width: 768px) {
-  .forwho { padding-top: 44px; padding-bottom: 28px; }
-  .check-list { grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
-  .check-list li { padding: 13px 16px; gap: 12px; font-size: 14px; line-height: 1.55; }
-  .chk { width: 16px; height: 16px; margin-top: 1px; }
+  .forwho { padding-top: 40px; padding-bottom: 24px; }
+  .check-list { grid-template-columns: 1fr; gap: 6px; margin-top: 18px; }
+  .check-list li { padding: 11px 14px; gap: 11px; font-size: 13.5px; line-height: 1.5; }
+  .chk { width: 15px; height: 15px; margin-top: 1px; flex-shrink: 0; }
+  .check-list li.rv.d5,
+  .check-list li.rv.d6 { display: none; }
 }
 
 /* ─── AULAS ─── */
